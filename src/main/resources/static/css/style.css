@@ -211,10 +211,50 @@ select {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 15px;
+    height: 30px;
 }
 
 .filter input::placeholder{
     color: #a3a3a3;
+}
+
+.search-container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 500;
+    font-size: 13px;
+}
+.search-container input{
+    background-image: url(../image/image.png);
+    background-repeat: no-repeat;
+    background-position: 99%;
+    background-size: 16px;
+    margin-right: 5px;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;  
 }
 
 button.filter-button {
@@ -249,6 +289,7 @@ a.black-button:hover {
 
 table {
     width: 100%;
+    min-width: 600px;
     border-collapse: collapse;
     background-color: transparent;
 }
@@ -298,10 +339,12 @@ tfoot td {
 }
 
 .action {
-    min-width: 205px;
+    min-width: 100px;
+    text-align: center;
 }
+
 .action-button {
-    padding: 3px;
+    padding: 3px 8% 3px 3px;
     border-radius: 3px;
     text-decoration: none;
     color: black;

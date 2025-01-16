@@ -31,3 +31,34 @@ function togglePart(partId) {
     });
   });
 
+
+let searchInput = document.querySelector('.search-container input');
+let suggestionsContainer = document.querySelector('.search-container .suggestions');
+
+const data = ['Apple','Banana','Orange','Grape','Pinaple'];
+
+searchInput.addEventListener('input', function() {
+    const query = searchInput.value;
+    console.log(query)
+    suggestionsContainer.innerHTML = '';
+
+    if(query){
+        const filteredData = data.filter(item => item.toLowerCase().includes(query));
+        filteredData.forEach(item => {
+            const div = document.createElement('div');
+            div.classList.add('suggestion-item');
+            div.textContent = item;
+            div.addEventListener('click',function(){
+                searchInput.value = item;
+                suggestionsContainer.innerHTML = '';
+            });
+            suggestionsContainer.appendChild(div);
+        });
+    }
+});
+
+document.addEventListener('click',function(event){
+    if(!event.target.closest('.search-container')){
+        suggestionsContainer.innerHTML = '';
+    }
+})
