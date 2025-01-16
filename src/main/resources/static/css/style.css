@@ -684,3 +684,25 @@ h3 a:hover {
     font-size: 16px;
     line-height: 1.5;
 }
+
+/* Input with search icon */
+.search-dropdown {
+    position: relative;
+}
+
+.search-dropdown .input-icon {
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 0.7em);
+}
+
+/* Searchbar with search icon */
+.searchbar {
+    position: relative;
+}
+
+.searchbar .input-icon {
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 0.5em);
+}
