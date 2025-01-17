@@ -4,357 +4,357 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simurgh</title>
-    <link rel="stylesheet" href="../../static/css/style.css" />
-    <link rel="stylesheet" href="../../static/css/font-awesome.css">
-    <link rel="stylesheet" href="../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="../../static/js/script.js" defer></script>
+    <script src="../../../static/js/script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div>
-            <h1>Simurgh</h1>
-            <span>Demo Multi Finance</span>
-        </div>
-        <div>Welcome, User</div>
-    </header>
-    <div class="container">
-        <aside class="sidebar">
-            <ul>
-                <li><a href="../portal/portal.html">Portal</a></li>
-    
-                <!-- Dropdown for Transaksi -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Transaksi</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../survey/taksasi-main.html">Taksasi</a></li>
-                        <li><a href="../usermanagement/transaksi-hirarkijabatan.html">Survei</a></li>
-                        <li><a href="../usermanagement/transaksi-pemindahantask.html">Validasi Survei</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-        <main>
-            <div class="form-container">
-                <h3>
-                    <a href="../survey/taksasi-main.html"> Taksasi </a> > Lihat
-                </h3>
-                <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
-                    <input type="hidden" name="_csrf" value="${_csrf.token}">
-                    <table>
-                        <tbody>
-                            <!-- Nomor Aplikasi (Text Input) -->
-                            <tr>
-                                <td><label class="label-nama">Nomor Aplikasi</label></td>
-                                <td>
-                                    <label><span th:text="${nomorAplikasi}"></span>000001</label>
-                                </td>
-                            </tr>
-                            
-                            <!-- Tanggal Aplikasi (Text Input) -->
-                            <tr>
-                                <td><label class="label-nama">Tanggal Aplikasi</label></td>
-                                <td>
-                                    <label><span th:text="${tanggalAplikasi}"></span>01 Desember 2012</label>
-                                </td>
-                            </tr>
-
-                            <!-- Kode Debitur (Text Input) -->
-                            <tr>
-                                <td><label class="label-nama">Kode Debitur</label></td>
-                                <td>
-                                    <label><span th:text="${kodeDebitur}"></span>C001</label>
-                                </td>
-                            </tr>
-
-                            <!-- Nama Depan Debitur (Text Input) -->
-                            <tr>
-                                <td><label class="label-nama">Nama Depan Debitur*</label></td>
-                                <td>
-                                    <label><span th:text="${namaDepanDebitur}"></span>Leonardo</label>
-                                </td>
-                            </tr>
-
-                            <!-- Nama Tengah Debitur (Text Input) -->
-                            <tr>
-                                <td><label class="label-nama">Nama Tengah Debitur</label></td>
-                                <td>
-                                    <label><span th:text="${namaTengahDebitur}"></span>Davinci</label>
-                                </td>
-                            </tr>
-
-                            <!-- Nama Akhir Debitur (Text Input) -->
-                            <tr>
-                                <td><label class="label-nama">Nama Akhir Debitur</label></td>
-                                <td>
-                                    <label><span th:text="${namaAkhirDebitur}"></span>Code</label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div id="part1" class="form-part">
-                        <button type="button" class="toggle-btn" onclick="togglePart('part1')">Data Asset</button>
-                        <div class="form-content">
-                            <table>
-                                <tbody>
-                                    <!-- Kategori (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Kategori</label></td>
-                                        <td>
-                                            <label><span th:text="${kategori}"></span>Mobil</label>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Merek (Search Dropdown) -->
-                                    <tr>
-                                        <td><label class="label-nama">Merek</label></td>
-                                        <td>
-                                            <label><span th:text="${merek}"></span>01 - Toyota</label>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Tipe (Search Dropdown) -->
-                                    <tr>
-                                        <td><label class="label-nama">Tipe</label></td>
-                                        <td>
-                                            <label><span th:text="${tipe}"></span>001 - Avanza</label>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Model (Search Dropdown) -->
-                                    <tr>
-                                        <td><label class="label-nama">Model</label></td>
-                                        <td>
-                                            <label><span th:text="${model}"></span>0001 - Veloz</label>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Jenis (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Jenis</label></td>
-                                        <td>
-                                            <label><span th:text="${jenis}"></span>001 - MPV</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Warna (Search Dropdown) -->
-                                    <tr>
-                                        <td><label class="label-nama">Warna</label></td>
-                                        <td>
-                                            <label><span th:text="${warna}"></span>W01 - Black</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Tahun (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Tahun</label></td>
-                                        <td>
-                                            <label><span th:text="${tahun}"></span>2024</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Nomor Polisi (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Nomor Polisi</label></td>
-                                        <td>
-                                            <label><span th:text="${nomorPolisi}"></span>B 1289 BAB</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Nomor Rangka (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Nomor Rangka</label></td>
-                                        <td>
-                                            <label><span th:text="${nomorRangka}"></span>MF4V0389473</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Nomor Mesin (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Nomor Mesin</label></td>
-                                        <td>
-                                            <label><span th:text="${nomorMesin}"></span>VR8937487380</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Nomor BPKB (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Nomor BPKB</label></td>
-                                        <td>
-                                            <label><span th:text="${nomorBPKB}"></span>B3435FR34</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Nama BPKB (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Nama BPKB</label></td>
-                                        <td>
-                                            <label><span th:text="${namaBPKB}"></span>Leonardo Davinci Code</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Komentar (Text Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Komentar</label></td>
-                                        <td>
-                                            <label><span th:text="${komentar}"></span></label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div id="part2" class="form-part">
-                        <button type="button" class="toggle-btn" onclick="togglePart('part2')">Perkiraan Nilai</button>
-                        <div class="form-content">
-                            <table>
-                                <tbody>
-                                    <!-- Nilai Harga Pasar (Number Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Nilai Harga Pasar</label></td>
-                                        <td>
-                                            <label><span th:text="${nilaiHargaPasar}"></span>5.150.000</label>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Total Pelepasan Sparepart (Number Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Total Pelepasan Sparepart</label></td>
-                                        <td>
-                                            <label><span th:text="${totalPelepasanSparepart}"></span>150.000</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Total Penambahan Sparepart (Number Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Total Penambahan Sparepart</label></td>
-                                        <td>
-                                            <label><span th:text="${totalPenambahanSparepart}"></span>300.000</label>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Nilai Taksasi (Number Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Nilai Taksasi</label></td>
-                                        <td>
-                                            <label><span th:text="${nilaiTaksasi}"></span>5.300.000</label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="table-form">
-                                <h4>Sparepart Pelepasan</h4>
-                                <a class="black-button create-button" href="taksasi-sparepart-pelepasan-tambah.html">
-                                    Tambah
-                                    <i class="fas fa-plus" aria-hidden="true"></i>
-                                </a>
-                                <div class="filter">
-                                    <input class="filter" type="text" id="sparepart-pelepasan" name="sparepart-pelepasan" placeholder="Nama Sparepart" th:attr="value=${nama}">
-                                    <div class="search-dropdown">
-                                        <input id="search" name="search" type="text" placeholder="Nama Sparepart">
-                                        <label for="search" class="fa fa-search input-icon"></label>
-                                    </div>
-                                </div>
-                                <button class="filter-button" type="submit">
-                                    Search
-                                </button>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Sparepart</th>
-                                            <th>Nilai Pelepasan Sparepart</th>
-                                            <th>Catatan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Spion Kanan</td>
-                                            <td>100.000</td>
-                                            <td>Tidak Standart</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Spion Kiri</td>
-                                            <td>100.000</td>
-                                            <td>Tidak Standart</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="5">
-                                                <div class="pagination" th:if="${numberOfPages} != 0">
-                                                    <div>
-                                                        <button>&laquo;</button>
-                                                        <button>&lt;</button>
-                                                        <span>Page 1 of 30</span>
-                                                        <button>&gt;</button>
-                                                        <button>&raquo;</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <div class="table-form">
-                                <h4>Sparepart Penambahan</h4>
-                                <a class="black-button create-button" href="taksasi-sparepart-penambahan-tambah.html">
-                                    Tambah
-                                    <i class="fas fa-plus" aria-hidden="true"></i>
-                                </a>
-                                <div class="filter">
-                                    <input class="filter" type="text" id="sparepart-pelepasan" name="sparepart-pelepasan" placeholder="Nama Sparepart" th:attr="value=${nama}">
-                                    <div class="search-dropdown">
-                                        <input id="search" name="search" type="text" placeholder="Nama Sparepart">
-                                        <label for="search" class="fa fa-search input-icon"></label>
-                                    </div>
-                                </div>
-                                <button class="filter-button" type="submit">
-                                    Search
-                                </button>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Sparepart</th>
-                                            <th>Nilai Penambahan Sparepart</th>
-                                            <th>Catatan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Subwoofer</td>
-                                            <td>300.000</td>
-                                            <td>Merk JBL</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Amplifier</td>
-                                            <td>500.000</td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="5">
-                                                <div class="pagination" th:if="${numberOfPages} != 0">
-                                                    <div>
-                                                        <button>&laquo;</button>
-                                                        <button>&lt;</button>
-                                                        <span>Page 1 of 30</span>
-                                                        <button>&gt;</button>
-                                                        <button>&raquo;</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </form>                
-            </div>
-        </main>
+<header>
+    <div>
+        <h1>Simurgh</h1>
+        <span>Demo Multi Finance</span>
     </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+    <aside class="sidebar">
+        <ul>
+            <li><a href="../portal/portal.html">Portal</a></li>
+
+            <!-- Dropdown for Transaksi -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Transaksi</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                    <li><a href="../usermanagement/transaksi-hirarkijabatan.html">Survei</a></li>
+                    <li><a href="../usermanagement/transaksi-pemindahantask.html">Validasi Survei</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <div class="form-container">
+            <h3>
+                <a href="../survey/taksasi-main.html"> Taksasi </a> > Lihat
+            </h3>
+            <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <table>
+                    <tbody>
+                    <!-- Nomor Aplikasi (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Nomor Aplikasi</label></td>
+                        <td>
+                            <label><span th:text="${nomorAplikasi}"></span>000001</label>
+                        </td>
+                    </tr>
+
+                    <!-- Tanggal Aplikasi (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Tanggal Aplikasi</label></td>
+                        <td>
+                            <label><span th:text="${tanggalAplikasi}"></span>01 Desember 2012</label>
+                        </td>
+                    </tr>
+
+                    <!-- Kode Debitur (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Kode Debitur</label></td>
+                        <td>
+                            <label><span th:text="${kodeDebitur}"></span>C001</label>
+                        </td>
+                    </tr>
+
+                    <!-- Nama Depan Debitur (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Nama Depan Debitur*</label></td>
+                        <td>
+                            <label><span th:text="${namaDepanDebitur}"></span>Leonardo</label>
+                        </td>
+                    </tr>
+
+                    <!-- Nama Tengah Debitur (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Nama Tengah Debitur</label></td>
+                        <td>
+                            <label><span th:text="${namaTengahDebitur}"></span>Davinci</label>
+                        </td>
+                    </tr>
+
+                    <!-- Nama Akhir Debitur (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Nama Akhir Debitur</label></td>
+                        <td>
+                            <label><span th:text="${namaAkhirDebitur}"></span>Code</label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="part1" class="form-part">
+                    <button type="button" class="toggle-btn" onclick="togglePart('part1')">Data Asset</button>
+                    <div class="form-content">
+                        <table>
+                            <tbody>
+                            <!-- Kategori (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Kategori</label></td>
+                                <td>
+                                    <label><span th:text="${kategori}"></span>Mobil</label>
+                                </td>
+                            </tr>
+
+                            <!-- Merek (Search Dropdown) -->
+                            <tr>
+                                <td><label class="label-nama">Merek</label></td>
+                                <td>
+                                    <label><span th:text="${merek}"></span>01 - Toyota</label>
+                                </td>
+                            </tr>
+
+                            <!-- Tipe (Search Dropdown) -->
+                            <tr>
+                                <td><label class="label-nama">Tipe</label></td>
+                                <td>
+                                    <label><span th:text="${tipe}"></span>001 - Avanza</label>
+                                </td>
+                            </tr>
+
+                            <!-- Model (Search Dropdown) -->
+                            <tr>
+                                <td><label class="label-nama">Model</label></td>
+                                <td>
+                                    <label><span th:text="${model}"></span>0001 - Veloz</label>
+                                </td>
+                            </tr>
+
+                            <!-- Jenis (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Jenis</label></td>
+                                <td>
+                                    <label><span th:text="${jenis}"></span>001 - MPV</label>
+                                </td>
+                            </tr>
+
+                            <!-- Warna (Search Dropdown) -->
+                            <tr>
+                                <td><label class="label-nama">Warna</label></td>
+                                <td>
+                                    <label><span th:text="${warna}"></span>W01 - Black</label>
+                                </td>
+                            </tr>
+
+                            <!-- Tahun (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Tahun</label></td>
+                                <td>
+                                    <label><span th:text="${tahun}"></span>2024</label>
+                                </td>
+                            </tr>
+
+                            <!-- Nomor Polisi (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nomor Polisi</label></td>
+                                <td>
+                                    <label><span th:text="${nomorPolisi}"></span>B 1289 BAB</label>
+                                </td>
+                            </tr>
+
+                            <!-- Nomor Rangka (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nomor Rangka</label></td>
+                                <td>
+                                    <label><span th:text="${nomorRangka}"></span>MF4V0389473</label>
+                                </td>
+                            </tr>
+
+                            <!-- Nomor Mesin (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nomor Mesin</label></td>
+                                <td>
+                                    <label><span th:text="${nomorMesin}"></span>VR8937487380</label>
+                                </td>
+                            </tr>
+
+                            <!-- Nomor BPKB (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nomor BPKB</label></td>
+                                <td>
+                                    <label><span th:text="${nomorBPKB}"></span>B3435FR34</label>
+                                </td>
+                            </tr>
+
+                            <!-- Nama BPKB (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nama BPKB</label></td>
+                                <td>
+                                    <label><span th:text="${namaBPKB}"></span>Leonardo Davinci Code</label>
+                                </td>
+                            </tr>
+
+                            <!-- Komentar (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Komentar</label></td>
+                                <td>
+                                    <label><span th:text="${komentar}"></span></label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="part2" class="form-part">
+                    <button type="button" class="toggle-btn" onclick="togglePart('part2')">Perkiraan Nilai</button>
+                    <div class="form-content">
+                        <table>
+                            <tbody>
+                            <!-- Nilai Harga Pasar (Number Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nilai Harga Pasar</label></td>
+                                <td>
+                                    <label><span th:text="${nilaiHargaPasar}"></span>5.150.000</label>
+                                </td>
+                            </tr>
+
+                            <!-- Total Pelepasan Sparepart (Number Input) -->
+                            <tr>
+                                <td><label class="label-nama">Total Pelepasan Sparepart</label></td>
+                                <td>
+                                    <label><span th:text="${totalPelepasanSparepart}"></span>150.000</label>
+                                </td>
+                            </tr>
+
+                            <!-- Total Penambahan Sparepart (Number Input) -->
+                            <tr>
+                                <td><label class="label-nama">Total Penambahan Sparepart</label></td>
+                                <td>
+                                    <label><span th:text="${totalPenambahanSparepart}"></span>300.000</label>
+                                </td>
+                            </tr>
+
+                            <!-- Nilai Taksasi (Number Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nilai Taksasi</label></td>
+                                <td>
+                                    <label><span th:text="${nilaiTaksasi}"></span>5.300.000</label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="table-form">
+                            <h4>Sparepart Pelepasan</h4>
+                            <a class="black-button create-button" href="taksasi-sparepart-pelepasan-tambah.html">
+                                Tambah
+                                <i class="fas fa-plus" aria-hidden="true"></i>
+                            </a>
+                            <div class="filter">
+                                <input class="filter" type="text" id="sparepart-pelepasan" name="sparepart-pelepasan" placeholder="Nama Sparepart" th:attr="value=${nama}">
+                                <div class="search-dropdown">
+                                    <input id="search-pelepasan" name="search-pelepasan" type="text" placeholder="Nama Sparepart">
+                                    <label for="search-pelepasan" class="fa fa-search input-icon"></label>
+                                </div>
+                            </div>
+                            <button class="filter-button" type="submit">
+                                Search
+                            </button>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Nama Sparepart</th>
+                                    <th>Nilai Pelepasan Sparepart</th>
+                                    <th>Catatan</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Spion Kanan</td>
+                                    <td>100.000</td>
+                                    <td>Tidak Standart</td>
+                                </tr>
+                                <tr>
+                                    <td>Spion Kiri</td>
+                                    <td>100.000</td>
+                                    <td>Tidak Standart</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="5">
+                                        <div class="pagination" th:if="${numberOfPages} != 0">
+                                            <div>
+                                                <button>&laquo;</button>
+                                                <button>&lt;</button>
+                                                <span>Page 1 of 30</span>
+                                                <button>&gt;</button>
+                                                <button>&raquo;</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="table-form">
+                            <h4>Sparepart Penambahan</h4>
+                            <a class="black-button create-button" href="taksasi-sparepart-penambahan-tambah.html">
+                                Tambah
+                                <i class="fas fa-plus" aria-hidden="true"></i>
+                            </a>
+                            <div class="filter">
+                                <input class="filter" type="text" id="sparepart-penambahan" name="sparepart-pelepasan" placeholder="Nama Sparepart" th:attr="value=${nama}">
+                                <div class="search-dropdown">
+                                    <input id="search-penambahan" name="search-penambahan" type="text" placeholder="Nama Sparepart">
+                                    <label for="search-penambahan" class="fa fa-search input-icon"></label>
+                                </div>
+                            </div>
+                            <button class="filter-button" type="submit">
+                                Search
+                            </button>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Nama Sparepart</th>
+                                    <th>Nilai Penambahan Sparepart</th>
+                                    <th>Catatan</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Subwoofer</td>
+                                    <td>300.000</td>
+                                    <td>Merk JBL</td>
+                                </tr>
+                                <tr>
+                                    <td>Amplifier</td>
+                                    <td>500.000</td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="5">
+                                        <div class="pagination" th:if="${numberOfPages} != 0">
+                                            <div>
+                                                <button>&laquo;</button>
+                                                <button>&lt;</button>
+                                                <span>Page 1 of 30</span>
+                                                <button>&gt;</button>
+                                                <button>&raquo;</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
 </body>
 </html>
