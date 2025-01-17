@@ -339,7 +339,7 @@ tfoot td {
 }
 
 .action {
-    width: fit-content;
+    min-width: 255px;
     text-align: center;
 }
 
@@ -745,5 +745,5 @@ h3 a:hover {
 }
 
 .upper-table-label .label-nama {
-    width: 200px;
+    width: 250px;
 }
