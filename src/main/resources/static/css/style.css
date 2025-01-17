@@ -706,3 +706,29 @@ h3 a:hover {
     right: 10px;
     top: calc(50% - 0.5em);
 }
+
+/* table in form */
+.table-form {
+    margin-top: 15px;
+}
+
+.table-form h4 {
+    margin-bottom: 15px;
+}
+
+.table-form button {
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+/* Button di bawah form */
+.form-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-button * {
+    width: fit-content;
+    margin: 10px 5px 0 5px;
+}
