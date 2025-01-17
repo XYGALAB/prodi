@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Simurgh</h1>
+        <span>Demo Multi Finance</span>
+    </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+    <aside class="sidebar">
+        <ul>
+            <li><a href="../portal/portal.html">Portal</a></li>
+
+            <!-- Dropdown for Transaksi -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Transaksi</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                    <li><a href="../survei/survei-main.html">Survei</a></li>
+                    <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <div class="form-container">
+            <h3>
+                <a href="survei-main.html"> Survei </a> > Batal Survei
+            </h3>
+            <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <table>
+                    <tbody>
+                    <!-- Nomor Aplikasi (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Nomor Aplikasi</label></td>
+                        <td>
+                            <input id="nomor-aplikasi" name="nomor-aplikasi" type="text" readonly value="000001">
+                            <div class="field-validation-error"></div>
+                        </td>
+                    </tr>
+
+                    <!-- Tanggal Aplikasi (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Tanggal Aplikasi</label></td>
+                        <td>
+                            <input id="tanggal-aplikasi" name="tanggal-aplikasi" type="text" readonly value="01 Januari 2024">
+                            <div class="field-validation-error"></div>
+                        </td>
+                    </tr>
+
+                    <!-- Nama Pemohon (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Nama Pemohon</label></td>
+                        <td>
+                            <input id="nama-pemohon" name="nama-pemohon" type="text" readonly value="Leonardo Davinci Code">
+                            <div class="field-validation-error"></div>
+                        </td>
+                    </tr>
+
+                    <!-- Status Debitur (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Status Debitur</label></td>
+                        <td>
+                            <input id="status-debitur" name="status-debitur" type="text" readonly value="New">
+                            <div class="field-validation-error"></div>
+                        </td>
+                    </tr>
+
+                    <!-- Alasan Batal Survei (Search Dropdown) -->
+                    <tr>
+                        <td><label class="label-nama">Alasan Batal Survei *</label></td>
+                        <td>
+                            <div class="search-dropdown">
+                                <input id="alasan" name="alasan" type="text" value="Lost Deal" required>
+                                <label for="alasan" class="fa fa-search input-icon"></label>
+                            </div>
+                            <div class="field-validation-error"></div>
+                        </td>
+                    </tr>
+
+
+                    <!-- Keterangan (Text Input) -->
+                    <tr>
+                        <td><label class="label-nama">Keterangan *</label></td>
+                        <td>
+                            <textarea id="keterangan" name="keterangan" rows="4" cols="50" required></textarea>
+                            <div class="field-validation-error"></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- Simpan Button -->
+                <button class="submit-button" type="submit">Simpan</button>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
