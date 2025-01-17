@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Simurgh</h1>
+        <span>Demo Multi Finance</span>
+    </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+    <aside class="sidebar">
+        <ul>
+        <li><a href="../portal/portal.html">Portal</a></li>
+
+        <!-- Dropdown for Transaksi -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Transaksi</a>
+            <ul class="dropdown-menu">
+            <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+            <li><a href="../survei/survei-main.html">Survei</a></li>
+            <li><a href="../usermanagement/transaksi-pemindahantask.html">Validasi Survei</a></li>
+            </ul>
+        </li>
+        </ul>
+    </aside>
+    <main>
+        <div class="table-container">
+            <h3>
+                <a href="survei-main.html"> Survey </a> > <a href="survei-input.html"> Input </a> > Lihat Kontrak RO
+            </h3>
+            <form method="get" class="filter" th:action="@{/prospect}">
+                <input type="text" id="nama" name="nama" placeholder="Nama Produk" th:attr="value=${nama}">
+                <div class="searchbar">
+                <input id="search" name="search" type="text" placeholder="Nama Produk">
+                <label for="search" class="fa fa-search input-icon"></label>
+                </div>
+                <button class="filter-button" type="submit">
+                Search
+                </button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nomor Aplikasi</th>
+                        <th>Nomor Kontrak</th>
+                        <th>Produk</th>
+                        <th>Tanggal Pencairan</th>
+                        <th>Sisa Pokok</th>
+                        <th>Angsuran Ke</th>
+                        <th>Tenor</th>
+                        <th>Status Past Due</th>
+                        <th>Maksimal Past Due</th>
+                        <th>Status Kontrak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>000001</td>
+                        <td>700001</td>
+                        <td>Agunan</td>
+                        <td>21 Feb 2024</td>
+                        <td>800.000</td>
+                        <td>20</td>
+                        <td>24</td>
+                        <td>1-30</td>
+                        <td>28</td>
+                        <td>AR</td>
+                    </tr>
+                    <tr>
+                        <td>000002</td>
+                        <td>700001</td>
+                        <td>Non Agunan</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Lunas</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <div class="pagination" th:if="${numberOfPages} != 0">
+                                <div>
+                                    <button>&laquo;</button>
+                                    <button>&lt;</button>
+                                    <span>Page 1 of 30</span>
+                                    <button>&gt;</button>
+                                    <button>&raquo;</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </main>
+</div>
+</body>
+</html>
