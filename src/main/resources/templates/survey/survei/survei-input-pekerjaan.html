@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Simurgh</h1>
+        <span>Demo Multi Finance</span>
+    </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+    <aside class="sidebar">
+        <ul>
+            <li><a href="../portal/portal.html">Portal</a></li>
+
+            <!-- Dropdown for Transaksi -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Transaksi</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                    <li><a href="../survei/survei-main.html">Survei</a></li>
+                    <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <div class="form-container">
+            <h3>
+                <a href="survei-main.html"> Survei </a> > <a href="survei-input.html"> Input </a> > Input Pekerjaan
+            </h3>
+            <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <table>
+                    <tbody>
+                        <!-- Nama Perusahaan (Dropdown + Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Nama Perusahaan</label></td>
+                            <td>
+                                <div class="input-dropdown">
+                                    <select name="jenis-bentuk-usaha" id="jenis-bentuk-usaha">
+                                        <option value="PT">PT</option>
+                                    </select>
+                                    <input id="bentuk-usaha" name="bentuk-usaha" type="text" value="Konsultasi indonesia">
+                                </div>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Bentuk Usaha (Search Dropdown) -->
+                        <tr>
+                            <td><label class="label-nama">Bentuk Usaha</label></td>
+                            <td>
+                                <div class="search-dropdown">
+                                    <input id="bentuk-usaha" name="bentuk-usaha" type="text" value="Jasa">
+                                    <label for="bentuk-usaha" class="fa fa-search input-icon"></label>
+                                </div>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Departemen (Search Dropdown) -->
+                        <tr>
+                            <td><label class="label-nama">Departemen *</label></td>
+                            <td>
+                                <div class="search-dropdown">
+                                    <input id="departemen" name="departemen" type="text" value="Legal" required>
+                                    <label for="departemen" class="fa fa-search input-icon"></label>
+                                </div>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Jabatan (Search Dropdown) -->
+                        <tr>
+                            <td><label class="label-nama">Jabatan *</label></td>
+                            <td>
+                                <div class="search-dropdown">
+                                    <input id="jabatan" name="jabatan" type="text" value="Staff" required>
+                                    <label for="jabatan" class="fa fa-search input-icon"></label>
+                                </div>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Tanggal Mulai Bekerja (Search Dropdown) -->
+                        <tr>
+                            <td><label class="label-nama">Tanggal Mulai Bekerja</label></td>
+                            <td>
+                                <input id="tanggal-mulai-bekerja" name="tanggal-mulai-bekerja" type="date">
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Alamat Kantor (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Alamat Kantor *</label></td>
+                            <td>
+                                <textarea name="alamat-kantor" id="alamat-kantor" required></textarea>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- RT/RW (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Nama Perusahaan</label></td>
+                            <td>
+                                <div class="input-rtrw">
+                                    <input id="rt" name="rt" type="text" value="008">
+                                    <p>/</p>
+                                    <input id="rw" name="rw" type="text" value="07">
+                                </div>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Kode Pos (Search Dropdown) -->
+                        <tr>
+                            <td><label class="label-nama">Kode Pos *</label></td>
+                            <td>
+                                <div class="search-dropdown">
+                                    <input id="kode-pos" name="kode-pos" type="text" value="16148" required>
+                                    <label for="kode-pos" class="fa fa-search input-icon"></label>
+                                </div>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Kelurahan (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Kelurahan</label></td>
+                            <td>
+                                <input id="kelurahan" name="kelurahan" type="text" value="Ciledug" readonly>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Kecamatan (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Kecamatan</label></td>
+                            <td>
+                                <input id="kecamatan" name="kecamatan" type="text" value="Ciledug" readonly>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Kota/Kabupaten (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Kota/Kabupaten</label></td>
+                            <td>
+                                <input id="kota-kabupaten" name="kota-kabupaten" type="text" value="Tangerang" readonly>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Provinsi (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Provinsi</label></td>
+                            <td>
+                                <input id="provinsi" name="provinsi" type="text" value="Banten" readonly>
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Nomor Telepon (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Nomor Telepon</label></td>
+                            <td>
+                                <input id="nomor-telepon" name="nomor-telepon" type="text" value="0214545454">
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Contact Person (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Contact Person</label></td>
+                            <td>
+                                <input id="contact-person" name="contact-person" type="text" value="Tan Malaka">
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+
+                        <!-- Nomor Telepon Contact Person (Text Input) -->
+                        <tr>
+                            <td><label class="label-nama">Nomor Telepon Contact Person</label></td>
+                            <td>
+                                <input id="nomor-telepon-cp" name="nomor-telepon-cp" type="text" value="08777888">
+                                <div class="field-validation-error"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Simpan Button -->
+                <button class="submit-button" type="submit">Simpan</button>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
