@@ -781,12 +781,10 @@ h3 a:hover {
     width: 250px;
 }
 
-<<<<<<< HEAD
 
 .tidak-sesuai{
     display: none;
 }
-=======
 /* Input sebaris dengan dropdown */
 .input-dropdown {
     display: flex;
@@ -832,4 +830,3 @@ h3 a:hover {
     width: 207px;
     padding: 5px;
 }
->>>>>>> 92b5369ec73eb34794dba2dda95ff08125ce8394
