@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+      <h1>Simurgh</h1>
+      <span>Demo Multi Finance</span>
+    </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+  <aside class="sidebar">
+    <ul>
+      <li><a href="../portal/portal.html">Portal</a></li>
+
+      <!-- Dropdown for Transaksi -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Transaksi</a>
+        <ul class="dropdown-menu">
+          <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+          <li><a href="../survei/survei-main.html">Survei</a></li>
+          <li><a href="../usermanagement/transaksi-pemindahantask.html">Validasi Survei</a></li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+  <main>
+    <div class="table-container">
+      <h3>
+        <a href="survei-main.html"> Survei </a> > <a href="survei-input.html"> Input </a> > Cek Negatif
+      </h3>
+      <form method="get" class="" th:action="@{/prospect}">
+        <div class="input-dropdown-table">
+            <select name="nama-debitur-dropdown" id="nama-debitur-dropdown">
+                <option value="" selected hidden>Nama Debitur</option>
+                <option value="Jane Doe">Jane Doe</option>
+            </select>
+            <input id="nama-debitur" name="nama-debitur" type="text" placeholder="Nomor Debitur" value="">
+        </div>
+        <div class="input-dropdown-table">
+            <select name="nomor-identitas-dropdown" id="nomor-identitas-dropdown">
+                <option value="" selected hidden>Nomor Identitas</option>
+                <option value="123456789">123456789</option>
+            </select>
+            <input id="nomor-identitas" name="nomor-identitas" type="text" placeholder="Nomor Identitas" value="">
+        </div>
+        <div class="input-dropdown-table">
+            <select name="nomor-handphone-dropdown" id="nomor-handphone-dropdown">
+                <option value="" selected hidden>Nomor Handphone</option>
+                <option value="">081123456789</option>
+            </select>
+            <input id="nomor-handphone" name="nomor-handhphone" type="text" placeholder="Nomor Handphone" value="">
+        </div>
+        <div class="input-dropdown-table">
+            <select name="alamat-dropdown" id="alamat-dropdown">
+                <option value="" selected hidden>Alamat</option>
+                <option value="Jl Daan Mogot">Jl Daan Mogot</option>
+            </select>
+            <input id="alamat" name="alamat" type="text" placeholder="Alamat" value="">
+        </div>
+        <div class="input-dropdown-table">
+            <select name="kode-debitur-dropdown" id="kode-debitur-dropdown">
+                <option value="" selected hidden>Kode Debitur</option>
+                <option value="C001">C001</option>
+            </select>
+            <input id="kode-debitur" name="kode-debitur" type="text" placeholder="Kode Debitur" value="">
+        </div>
+        <div class="input-dropdown-table">
+            <select name="nomor-polisi-dropdown" id="nomor-polisi-dropdown">
+                <option value="" selected hidden>Nomor Polisi</option>
+                <option value="B 1234 TIM">B 1234 TIM</option>
+            </select>
+            <input id="nomor-polisi" name="nomor-polisi" type="text" placeholder="Nomor Polisi" value="">
+        </div>
+        <div class="filter">
+            <select name="search-dropdown" id="search-dropdown">
+                <option value="" selected hidden>Nomor Polisi</option>
+                <option value="B 1741 NH">B 1741 HN</option>
+            </select>
+            <div class="searchbar">
+                <input id="search" name="search" type="text" placeholder="Nama Polisi">
+                <label for="search" class="fa fa-search input-icon"></label>
+            </div>
+            <button class="filter-button" type="submit">
+              Search
+            </button>
+        </div>
+      </form>
+      <table>
+        <thead>
+            <tr>
+                <th>Kode Debitur</th>
+                <th>Nama Debitur</th>
+                <th>Nomor Identitas</th>
+                <th>Jenis Kelamin</th>
+                <th>Alamat</th>
+                <th>Nomor Handphone</th>
+                <th>Nomor Polisi</th>
+                <th>Sumber Informasi</th>
+                <th>Kategori Negara</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>C001</td>
+                <td>Jane Doe</td>
+                <td>36710434580001</td>
+                <td>Perempuan</td>
+                <td>Jl Daan Mogot</td>
+                <td>0856837854</td>
+                <td>B 1234 TIM</td>
+                <td>pefindo</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>C002</td>
+                <td>Abdul Furqon</td>
+                <td>36710434580002</td>
+                <td>Laki-Laki</td>
+                <td>Jl Daan Mogot</td>
+                <td>0834874855</td>
+                <td>B 1234 BAR</td>
+                <td>pefindo</td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                <div class="pagination" th:if="${numberOfPages} != 0">
+                    <div>
+                    <button>&laquo;</button>
+                    <button>&lt;</button>
+                    <span>Page 1 of 30</span>
+                    <button>&gt;</button>
+                    <button>&raquo;</button>
+                    </div>
+                </div>
+                </td>
+            </tr>
+        </tfoot>
+      </table>
+    </div>
+  </main>
+</div>
+</body>
+</html>
