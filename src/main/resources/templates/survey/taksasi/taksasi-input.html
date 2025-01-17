@@ -13,98 +13,424 @@
     <script src="../../../static/js/script.js" defer></script>
 </head>
 <body>
-<header>
-    <div>
-        <h1>Simurgh</h1>
-        <span>Demo Multi Finance</span>
-    </div>
-    <div>Welcome, User</div>
-</header>
-<div class="container">
-    <aside class="sidebar">
-        <ul>
-            <li><a href="../portal/portal.html">Portal</a></li>
+    <header>
+        <div>
+            <h1>Simurgh</h1>
+            <span>Demo Multi Finance</span>
+        </div>
+        <div>Welcome, User</div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="../portal/portal.html">Portal</a></li>
+    
+                <!-- Dropdown for Transaksi -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Transaksi</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                        <li><a href="../survei/survei-main.html">Survei</a></li>
+                        <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <div class="form-container">
+                <h3>
+                    <a href="taksasi-main.html"> Taksasi </a> > Input
+                </h3>
+                <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <table>
+                        <tbody>
+                            <!-- Nomor Aplikasi (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nomor Aplikasi</label></td>
+                                <td>
+                                    <input id="nomor-aplikasi" name="nomor-aplikasi" type="text" readonly value="000001">
+                                    <div class="field-validation-error"></div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Tanggal Aplikasi (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Tanggal Aplikasi</label></td>
+                                <td>
+                                    <input id="tanggal-aplikasi" name="tanggal-aplikasi" type="text" readonly value="01 Desember 2012">
+                                    <div class="field-validation-error"></div>
+                                </td>
+                            </tr>
 
-            <!-- Dropdown for Transaksi -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Transaksi</a>
-                <ul class="dropdown-menu">
-                    <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
-                    <li><a href="../survei/survei-main.html">Survei</a></li>
-                    <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
-                </ul>
-            </li>
-        </ul>
-    </aside>
-    <main>
-        <div class="table-container">
-            <h3> Taksasi </h3>
-            <form method="get" class="filter" th:action="@{/prospect}">
-                <input type="text" id="nama" name="nama" placeholder="Nama Debitur" th:attr="value=${nama}">
-                <div class="searchbar">
-                    <input id="search" name="search" type="text" placeholder="Nama Tabel">
-                    <label for="search" class="fa fa-search input-icon"></label>
-                </div>
-                <button class="filter-button" type="submit">
-                    Search
-                </button>
-            </form>
-            <table>
-                <thead>
-                <tr>
-                    <th>Action</th>
-                    <th>Nomor Aplikasi</th>
-                    <th>Tanggal Aplikasi</th>
-                    <th>Nama Debitur</th>
-                    <th>Status Debitur</th>
-                    <th>Tanggal Taksasi</th>
-                    <th>Produk</th>
-                    <th>Merek</th>
-                    <th>Tipe</th>
-                    <th>Model</th>
-                    <th>Jenis</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="action">
-                        <a href="taksasi-input.html" class="action-button update-button">
-                            <i class="fas fa-edit" aria-hidden="true"></i> input
-                        </a>
-                        <a class="action-button detail-button" href="taksasi-lihat.html">
-                            <i class="fa fa-info-circle" aria-hidden="true"></i> lihat
-                        </a>
-                    </td>
-                    <td>000001</td>
-                    <td>01/12/2012</td>
-                    <td>Leonardo Davinci Code</td>
-                    <td>New</td>
-                    <td></td>
-                    <td>UMKM</td>
-                    <td>Toyota</td>
-                    <td>Avanza</td>
-                    <td>Veloz</td>
-                    <td>MPV</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td colspan="5">
-                        <div class="pagination" th:if="${numberOfPages} != 0">
-                            <div>
-                                <button>&laquo;</button>
-                                <button>&lt;</button>
-                                <span>Page 1 of 30</span>
-                                <button>&gt;</button>
-                                <button>&raquo;</button>
+                            <!-- Kode Debitur (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Kode Debitur</label></td>
+                                <td>
+                                    <input id="kode-debitur" name="kode-debitur" type="text" readonly value="C001">
+                                    <div class="field-validation-error"></div>
+                                </td>
+                            </tr>
+
+                            <!-- Nama Depan Debitur (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nama Depan Debitur*</label></td>
+                                <td>
+                                    <input id="nama-depan-debitur" name="nama-depan-debitur" type="text" required readonly value="Leonardo">
+                                    <div class="field-validation-error"></div>
+                                </td>
+                            </tr>
+
+                            <!-- Nama Tengah Debitur (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nama Tengah Debitur</label></td>
+                                <td>
+                                    <input id="nama-tengah-debitur" name="nama-tengah-debitur" type="text" readonly value="Davinci">
+                                    <div class="field-validation-error"></div>
+                                </td>
+                            </tr>
+
+                            <!-- Nama Akhir Debitur (Text Input) -->
+                            <tr>
+                                <td><label class="label-nama">Nama Akhir Debitur</label></td>
+                                <td>
+                                    <input id="nama-akhir-debitur" name="nama-akhir-debitur" type="text" readonly value="Code">
+                                    <div class="field-validation-error"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="part1" class="form-part">
+                        <button type="button" class="toggle-btn" onclick="togglePart('part1')">Data Asset</button>
+                        <div class="form-content">
+                            <table>
+                                <tbody>
+                                    <!-- Kategori (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Kategori</label></td>
+                                        <td>
+                                            <input id="kategori" name="kategori" type="text" readonly value="Mobil">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Merek (Search Dropdown) -->
+                                    <tr>
+                                        <td><label class="label-nama">Merek</label></td>
+                                        <td>
+                                            <div class="search-dropdown">
+                                                <input id="merek" name="merek" type="text" value="01 - Toyota">
+                                                <label for="merek" class="fa fa-search input-icon"></label>
+                                            </div>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Tipe (Search Dropdown) -->
+                                    <tr>
+                                        <td><label class="label-nama">Tipe</label></td>
+                                        <td>
+                                            <div class="search-dropdown">
+                                                <input id="tipe" name="tipe" type="text" value="001 - Avanza">
+                                                <label for="tipe" class="fa fa-search input-icon"></label>
+                                            </div>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Model (Search Dropdown) -->
+                                    <tr>
+                                        <td><label class="label-nama">Model</label></td>
+                                        <td>
+                                            <div class="search-dropdown">
+                                                <input id="model" name="model" type="text" value="0001 - Veloz">
+                                                <label for="model" class="fa fa-search input-icon"></label>
+                                            </div>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Jenis (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Jenis</label></td>
+                                        <td>
+                                            <input id="jenis" name="jenis" type="text" readonly value="001 - MPV">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Warna (Search Dropdown) -->
+                                    <tr>
+                                        <td><label class="label-nama">Warna</label></td>
+                                        <td>
+                                            <div class="search-dropdown">
+                                                <input id="warna" name="warna" type="text" value="W01 - Black">
+                                                <label for="warna" class="fa fa-search input-icon"></label>
+                                            </div>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Tahun (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Tahun</label></td>
+                                        <td>
+                                            <input id="tahun" name="tahun" type="text" value="2024">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Nomor Polisi (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Nomor Polisi</label></td>
+                                        <td>
+                                            <input id="nomor-polisi" name="nomor-polisi" type="text" readonly value="B 1289 BAB">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Nomor Rangka (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Nomor Rangka</label></td>
+                                        <td>
+                                            <input id="nomor-rangka" name="nomor-rangka" type="text" value="MF4V0389473">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Nomor Mesin (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Nomor Mesin</label></td>
+                                        <td>
+                                            <input id="nomor-mesin" name="nomor-mesin" type="text" value="VR8937487380">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Nomor BPKB (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Nomor BPKB</label></td>
+                                        <td>
+                                            <input id="nomor-bpkb" name="nomor-bpkb" type="text" value="B3435FR34">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Nama BPKB (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Nama BPKB</label></td>
+                                        <td>
+                                            <input id="nama-bpkb" name="nama-bpkb" type="text" value="Leonardo Davinci Code">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Komentar (Text Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Komentar</label></td>
+                                        <td>
+                                            <textarea id="komentar" name="komentar" rows="4" cols="50"></textarea>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="part2" class="form-part">
+                        <button type="button" class="toggle-btn" onclick="togglePart('part2')">Perkiraan Nilai</button>
+                        <div class="form-content">
+                            <table>
+                                <tbody>
+                                    <!-- Nilai Harga Pasar (Number Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Nilai Harga Pasar</label></td>
+                                        <td>
+                                            <input id="nilai-harga-pasar" name="nilai-harga-pasar" type="number" readonly min="1" max="99999999999" value="5150000">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Total Pelepasan Sparepart (Number Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Total Pelepasan Sparepart</label></td>
+                                        <td>
+                                            <input id="total-pelepasan-sparepart" name="total-pelepasan-sparepart" type="number" readonly min="1" max="99999999999" value="150000">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Total Penambahan Sparepart (Number Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Total Penambahan Sparepart</label></td>
+                                        <td>
+                                            <input id="total-penambahan-sparepart" name="total-penambahan-sparepart" type="number" readonly min="1" max="99999999999" value="300000">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Nilai Taksasi (Number Input) -->
+                                    <tr>
+                                        <td><label class="label-nama">Nilai Taksasi</label></td>
+                                        <td>
+                                            <input id="nilai-taksasi" name="nilai-taksasi" type="number" readonly min="1" max="99999999999" value="5300000">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-form">
+                                <h4>Sparepart Pelepasan</h4>
+                                <a class="black-button create-button" href="taksasi-sparepart-pelepasan-tambah.html">
+                                    Tambah
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
+                                <div class="filter">
+                                    <input class="filter" type="text" id="sparepart-pelepasan" name="sparepart-pelepasan" placeholder="Nama Sparepart" th:attr="value=${nama}">
+                                    <div class="search-dropdown">
+                                        <input id="search" name="search" type="text" placeholder="Nama Sparepart">
+                                        <label for="search" class="fa fa-search input-icon"></label>
+                                    </div>
+                                </div>
+                                <button class="filter-button" type="submit">
+                                    Search
+                                </button>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Action</th>
+                                            <th>Nama Sparepart</th>
+                                            <th>Nilai Pelepasan Sparepart</th>
+                                            <th>Catatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="action">
+                                                <a href="master-perusahaan-delete.html" class="action-button delete-button">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i> delete
+                                                </a>
+                                                <a href="taksasi-sparepart-pelepasan-ubah.html" class="action-button update-button">
+                                                    <i class="fas fa-edit" aria-hidden="true"></i> edit
+                                                </a>
+                                            </td>
+                                            <td>Spion Kanan</td>
+                                            <td>100.000</td>
+                                            <td>Tidak Standart</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="action">
+                                                <a href="master-perusahaan-delete.html" class="action-button delete-button">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i> delete
+                                                </a>
+                                                <a href="taksasi-sparepart-pelepasan-ubah.html" class="action-button update-button">
+                                                    <i class="fas fa-edit" aria-hidden="true"></i> edit
+                                                </a>
+                                            </td>
+                                            <td>Spion Kiri</td>
+                                            <td>100.000</td>
+                                            <td>Tidak Standart</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5">
+                                                <div class="pagination" th:if="${numberOfPages} != 0">
+                                                    <div>
+                                                        <button>&laquo;</button>
+                                                        <button>&lt;</button>
+                                                        <span>Page 1 of 30</span>
+                                                        <button>&gt;</button>
+                                                        <button>&raquo;</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="table-form">
+                                <h4>Sparepart Penambahan</h4>
+                                <a class="black-button create-button" href="taksasi-sparepart-penambahan-tambah.html">
+                                    Tambah
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                </a>
+                                <div class="filter">
+                                    <input class="filter" type="text" id="sparepart-pelepasan" name="sparepart-pelepasan" placeholder="Nama Sparepart" th:attr="value=${nama}">
+                                    <div class="search-dropdown">
+                                        <input id="search" name="search" type="text" placeholder="Nama Sparepart">
+                                        <label for="search" class="fa fa-search input-icon"></label>
+                                    </div>
+                                </div>
+                                <button class="filter-button" type="submit">
+                                    Search
+                                </button>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Action</th>
+                                            <th>Nama Sparepart</th>
+                                            <th>Nilai Penambahan Sparepart</th>
+                                            <th>Catatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="action">
+                                                <a href="master-perusahaan-delete.html" class="action-button delete-button">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i> delete
+                                                </a>
+                                                <a href="taksasi-sparepart-penambahan-ubah.html" class="action-button update-button">
+                                                    <i class="fas fa-edit" aria-hidden="true"></i> edit
+                                                </a>
+                                            </td>
+                                            <td>Subwoofer</td>
+                                            <td>300.000</td>
+                                            <td>Merk JBL</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="action">
+                                                <a href="master-perusahaan-delete.html" class="action-button delete-button">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i> delete
+                                                </a>
+                                                <a href="taksasi-sparepart-penambahan-ubah.html" class="action-button update-button">
+                                                    <i class="fas fa-edit" aria-hidden="true"></i> edit
+                                                </a>
+                                            </td>
+                                            <td>Amplifier</td>
+                                            <td>500.000</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5">
+                                                <div class="pagination" th:if="${numberOfPages} != 0">
+                                                    <div>
+                                                        <button>&laquo;</button>
+                                                        <button>&lt;</button>
+                                                        <span>Page 1 of 30</span>
+                                                        <button>&gt;</button>
+                                                        <button>&raquo;</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
-                    </td>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-    </main>
-</div>
+                    </div>
+                    <!-- Simpan, Kirim, Lihat Komentar, Batal Button -->
+                    <div class="form-button">
+                        <button class="submit-button" type="submit">Simpan</button>
+                        <button class="submit-button" type="submit">Kirim</button>
+                        <a href="taksasi-input-lihat-komentar.html" class="submit-button">Lihat Komentar</a>
+                        <button class="submit-button" type="submit">Batal</button>
+                    </div>
+                </form>                
+            </div>
+        </main>
+    </div>
 </body>
 </html>
