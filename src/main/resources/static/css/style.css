@@ -343,6 +343,10 @@ tfoot td {
     text-align: center;
 }
 
+.action * {
+    margin-bottom: 10px;
+}
+
 .action-button {
     padding: 3px 8% 3px 3px;
     border-radius: 3px;
