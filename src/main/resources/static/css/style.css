@@ -736,3 +736,14 @@ h3 a:hover {
     width: fit-content;
     margin: 10px 5px 0 5px;
 }
+
+/* Label untuk data di atas form */
+.upper-table-label {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 10px 0;
+}
+
+.upper-table-label .label-nama {
+    width: 200px;
+}

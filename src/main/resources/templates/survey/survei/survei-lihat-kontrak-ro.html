@@ -39,8 +39,14 @@
     <main>
         <div class="table-container">
             <h3>
-                <a href="survei-main.html"> Survey </a> > <a href="survei-input.html"> Input </a> > Lihat Kontrak RO
+                <a href="survei-main.html"> Survei </a> > <a href="survei-input.html"> Input </a> > Lihat Kontrak RO
             </h3>
+            <div>
+                <div class="upper-table-label">
+                    <label class="label-nama">Nomor Aplikasi</label></td>
+                    <label><span th:text="${nomorAplikasi}"></span>000001</label>
+                </div>
+            </div>
             <form method="get" class="filter" th:action="@{/prospect}">
                 <input type="text" id="nama" name="nama" placeholder="Nama Produk" th:attr="value=${nama}">
                 <div class="searchbar">
