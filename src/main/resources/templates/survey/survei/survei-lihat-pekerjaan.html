@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Simurgh</h1>
+        <span>Demo Multi Finance</span>
+    </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+    <aside class="sidebar">
+        <ul>
+            <li><a href="../portal/portal.html">Portal</a></li>
+
+            <!-- Dropdown for Transaksi -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Transaksi</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                    <li><a href="../survei/survei-main.html">Survei</a></li>
+                    <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <div class="form-container">
+            <h3>
+                <a href="survei-main.html"> Survei </a> > Lihat Pekerjaan
+            </h3>
+            <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <table>
+                    <tbody>
+                        <!-- Nama Perusahaan -->
+                        <tr>
+                            <td><label class="label-nama">Nama Perusahaan</label></td>
+                            <td>
+                                <label><span th:text="${namaPerusahaan}"></span>PT - Konsultasi Indonesia</label>
+                            </td>
+                        </tr>
+
+                        <!-- Bentuk Usaha -->
+                        <tr>
+                            <td><label class="label-nama">Bentuk Usaha</label></td>
+                            <td>
+                                <label><span th:text="${bentukUsaha}"></span>Jasa</label>
+                            </td>
+                        </tr>
+
+                        <!-- Departemen -->
+                        <tr>
+                            <td><label class="label-nama">Departemen</label></td>
+                            <td>
+                                <label><span th:text="${departemen}"></span>Legal</label>
+                            </td>
+                        </tr>
+
+                        <!-- Jabatan -->
+                        <tr>
+                            <td><label class="label-nama">Jabatan</label></td>
+                            <td>
+                                <label><span th:text="${jabatan}"></span>Staff</label>
+                            </td>
+                        </tr>
+
+                        <!-- Tanggal Mulai Bekerja -->
+                        <tr>
+                            <td><label class="label-nama">Tanggal Mulai Bekerja</label></td>
+                            <td>
+                                <label><span th:text="${tanggalMulaiBekerja}"></span>01 Desember 2024</label>
+                            </td>
+                        </tr>
+
+                        <!-- Alamat Kantor -->
+                        <tr>
+                            <td><label class="label-nama">Alamat Kantor</label></td>
+                            <td>
+                                <label><span th:text="${alamatKantor}"></span></label>
+                            </td>
+                        </tr>
+
+                        <!-- RT/RW -->
+                        <tr>
+                            <td><label class="label-nama">RT/RW</label></td>
+                            <td>
+                                <div class="input-rtrw">
+                                    <label><span th:text="${rt}"></span>001</label>
+                                    <p>/</p>
+                                    <label><span th:text="${rw}"></span>01</label>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Kode Pos -->
+                        <tr>
+                            <td><label class="label-nama">Kode Pos</label></td>
+                            <td>
+                                <label><span th:text="${kodePos}"></span>16148</label>
+                            </td>
+                        </tr>
+
+                        <!-- Kelurahan -->
+                        <tr>
+                            <td><label class="label-nama">Kelurahan</label></td>
+                            <td>
+                                <label><span th:text="${kelurahan}"></span>Ciledug</label>
+                            </td>
+                        </tr>
+
+                        <!-- Kecamatan -->
+                        <tr>
+                            <td><label class="label-nama">Kecamatan</label></td>
+                            <td>
+                                <label><span th:text="${kecamatan}"></span>Ciledug</label>
+                            </td>
+                        </tr>
+
+                        <!-- Kota/Kabupaten -->
+                        <tr>
+                            <td><label class="label-nama">Kota/Kabupaten</label></td>
+                            <td>
+                                <label><span th:text="${kotaKabupaten}"></span>Tangerang</label>
+                            </td>
+                        </tr>
+
+                        <!-- Provinsi -->
+                        <tr>
+                            <td><label class="label-nama">Provinsi</label></td>
+                            <td>
+                                <label><span th:text="${provinsi}"></span>Banten</label>
+                            </td>
+                        </tr>
+
+                        <!-- Nomor Telepon -->
+                        <tr>
+                            <td><label class="label-nama">Nomor Telepon</label></td>
+                            <td>
+                                <label><span th:text="${nomorTelepon}"></span>0214545454</label>
+                            </td>
+                        </tr>
+
+                        <!-- Contact Person -->
+                        <tr>
+                            <td><label class="label-nama">Contact Person</label></td>
+                            <td>
+                                <label><span th:text="${contactPerson}"></span>Tan Malaka</label>
+                            </td>
+                        </tr>
+
+                        <!-- Nomor Telepon Contact Person -->
+                        <tr>
+                            <td><label class="label-nama">Nomor Telepon Contact Person</label></td>
+                            <td>
+                                <label><span th:text="${nomorTeleponCP}"></span>08777888</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>

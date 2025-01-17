@@ -40,9 +40,12 @@
     <div class="table-container">
       <h3> Survei </h3>
       <form method="get" class="filter" th:action="@{/prospect}">
-        <input type="text" id="nama" name="nama" placeholder="Nama Debitur" th:attr="value=${nama}">
+        <select name="search-dropdown" id="search-dropdown">
+          <option value="" selected hidden>Nama Debitur</option>
+          <option value="Tata Jim">Tata Jim</option>
+        </select>
         <div class="searchbar">
-          <input id="search" name="search" type="text" placeholder="Nama Tabel">
+          <input id="search" name="search" type="text" placeholder="Nama Debitur">
           <label for="search" class="fa fa-search input-icon"></label>
         </div>
         <button class="filter-button" type="submit">

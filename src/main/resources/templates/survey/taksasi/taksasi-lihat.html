@@ -251,7 +251,10 @@
                                 <i class="fas fa-plus" aria-hidden="true"></i>
                             </a>
                             <div class="filter">
-                                <input class="filter" type="text" id="sparepart-pelepasan" name="sparepart-pelepasan" placeholder="Nama Sparepart" th:attr="value=${nama}">
+                                <select name="sparepart-pelepasan" id="sparepart-pelepasan">
+                                    <option value="" selected hidden>Nama Sparepart</option>
+                                    <option value="Spion">Spion</option>
+                                </select>
                                 <div class="search-dropdown">
                                     <input id="search-pelepasan" name="search-pelepasan" type="text" placeholder="Nama Sparepart">
                                     <label for="search-pelepasan" class="fa fa-search input-icon"></label>
@@ -304,7 +307,10 @@
                                 <i class="fas fa-plus" aria-hidden="true"></i>
                             </a>
                             <div class="filter">
-                                <input class="filter" type="text" id="sparepart-penambahan" name="sparepart-pelepasan" placeholder="Nama Sparepart" th:attr="value=${nama}">
+                                <select name="sparepart-penambahan" id="sparepart-penambahan">
+                                    <option value="" selected hidden>Nama Sparepart</option>
+                                    <option value="Subwoofer">Subwoofer</option>
+                                </select>
                                 <div class="search-dropdown">
                                     <input id="search-penambahan" name="search-penambahan" type="text" placeholder="Nama Sparepart">
                                     <label for="search-penambahan" class="fa fa-search input-icon"></label>

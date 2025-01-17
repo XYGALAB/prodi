@@ -211,7 +211,7 @@ select {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 15px;
-    height: 30px;
+    height: 40px;
 }
 
 .filter input::placeholder{
@@ -707,6 +707,7 @@ h3 a:hover {
 /* Input with search icon */
 .search-dropdown {
     position: relative;
+    width: 210px;
 }
 
 .search-dropdown .input-icon {
@@ -742,6 +743,7 @@ h3 a:hover {
     border: none;
     text-align: left;
 }
+
 /* table in form */
 .table-form {
     margin-top: 15px;
@@ -779,7 +781,55 @@ h3 a:hover {
     width: 250px;
 }
 
+<<<<<<< HEAD
 
 .tidak-sesuai{
     display: none;
 }
+=======
+/* Input sebaris dengan dropdown */
+.input-dropdown {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input-dropdown select {
+    width: 200px;
+    margin-right: 10px;
+}
+
+/* Input khusus RT/RW */
+.input-rtrw {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input-rtrw input[type="text"] {
+    width: 50px;
+    text-align: center;
+}
+
+.input-rtrw p {
+    margin: 0 10px 0 10px;
+    font-size: xx-large;
+}
+
+/* Input sebaris dengan dropdown di atas form */
+.input-dropdown-table {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.input-dropdown-table select {
+    width: 127px;
+    margin-right: 10px;
+}
+
+.input-dropdown-table input {
+    width: 207px;
+    padding: 5px;
+}
+>>>>>>> 92b5369ec73eb34794dba2dda95ff08125ce8394
