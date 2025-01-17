@@ -711,6 +711,7 @@ h3 a:hover {
 /* Input with search icon */
 .search-dropdown {
     position: relative;
+    width: 210px;
 }
 
 .search-dropdown .input-icon {
