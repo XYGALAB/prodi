@@ -813,3 +813,20 @@ h3 a:hover {
     margin: 0 10px 0 10px;
     font-size: xx-large;
 }
+
+/* Input sebaris dengan dropdown di atas form */
+.input-dropdown-table {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.input-dropdown-table select {
+    width: 127px;
+    margin-right: 10px;
+}
+
+.input-dropdown-table input {
+    width: 207px;
+    padding: 5px;
+}
