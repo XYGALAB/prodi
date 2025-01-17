@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Simurgh</h1>
+        <span>Demo Multi Finance</span>
+    </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+    <aside class="sidebar">
+        <ul>
+            <li><a href="../portal/portal.html">Portal</a></li>
+
+            <!-- Dropdown for Transaksi -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Transaksi</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                    <li><a href="../survei/survei-main.html">Survei</a></li>
+                    <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <div class="form-container">
+            <h3>
+                <a href="survei-main.html"> Survei </a> > <a href="survei-input.html"> Input </a> > <a href="survei-data-kartu-keluarga.html"> Data Kartu Keluarga </a> > Lihat
+            </h3>
+            <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <table>
+                    <tbody>
+                        <!-- Nama Lengkap -->
+                        <tr>
+                            <td><label class="label-nama">Nama Lengkap</label></td>
+                            <td>
+                                <label><span th:text="${namaLengkap}"></span>Surya Kencana</label>
+                            </td>
+                        </tr>
+
+                        <!-- NIK -->
+                        <tr>
+                            <td><label class="label-nama">NIK</label></td>
+                            <td>
+                                <label><span th:text="${nik}"></span>36752304890002</label>
+                            </td>
+                        </tr>
+
+                        <!-- Jenis Kelamin -->
+                        <tr>
+                            <td><label class="label-nama">Jenis Kelamin</label></td>
+                            <td>
+                                <label><span th:text="${jenisKelamin}"></span>Laki-Laki</label>
+                            </td>
+                        </tr>
+
+                        <!-- Tempat Lahir -->
+                        <tr>
+                            <td><label class="label-nama">Tempat Lahir</label></td>
+                            <td>
+                                <label><span th:text="${tempatLahir}"></span>Jakarta</label>
+                            </td>
+                        </tr>
+
+                        <!-- Tanggal Lahir -->
+                        <tr>
+                            <td><label class="label-nama">Tanggal Lahir</label></td>
+                            <td>
+                                <label><span th:text="${tanggalLahir}"></span>01 Desember 2000</label>
+                            </td>
+                        </tr>
+
+                        <!-- Agama -->
+                        <tr>
+                            <td><label class="label-nama">Agama</label></td>
+                            <td>
+                                <label><span th:text="${agama}"></span>Islam</label>
+                            </td>
+                        </tr>
+
+                        <!-- Pendidikan -->
+                        <tr>
+                            <td><label class="label-nama">Pendidikan</label></td>
+                            <td>
+                                <label><span th:text="${pendidikan}"></span>S1</label>
+                            </td>
+                        </tr>
+
+                        <!-- Pekerjaan -->
+                        <tr>
+                            <td><label class="label-nama">Pekerjaan</label></td>
+                            <td>
+                                <label><span th:text="${pekerjaan}"></span>Wiraswasta</label>
+                            </td>
+                        </tr>
+
+                        <!-- Hubungan -->
+                        <tr>
+                            <td><label class="label-nama">Hubungan</label></td>
+                            <td>
+                                <label><span th:text="${hubungan}"></span>Suami</label>
+                            </td>
+                        </tr>
+
+                        <!-- Kewarganegaraan -->
+                        <tr>
+                            <td><label class="label-nama">Kewarganegaraan</label></td>
+                            <td>
+                                <label><span th:text="${kewarganegaraan}"></span>WNI</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
