@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+      <h1>Simurgh</h1>
+      <span>Demo Multi Finance</span>
+    </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+  <aside class="sidebar">
+    <ul>
+      <li><a href="../portal/portal.html">Portal</a></li>
+
+      <!-- Dropdown for Transaksi -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Transaksi</a>
+        <ul class="dropdown-menu">
+          <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+          <li><a href="../survei/survei-main.html">Survei</a></li>
+          <li><a href="../usermanagement/transaksi-pemindahantask.html">Validasi Survei</a></li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+  <main>
+    <div class="table-container">
+      <h3> Survei </h3>
+      <form method="get" class="filter" th:action="@{/prospect}">
+        <input type="text" id="nama" name="nama" placeholder="Nama Debitur" th:attr="value=${nama}">
+        <div class="searchbar">
+          <input id="search" name="search" type="text" placeholder="Nama Tabel">
+          <label for="search" class="fa fa-search input-icon"></label>
+        </div>
+        <button class="filter-button" type="submit">
+          Search
+        </button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Nomor Aplikasi</th>
+            <th>Tanggal Aplikasi</th>
+            <th>Nama Surveyor</th>
+            <th>Tanggal Surveyor</th>
+            <th>Nama Debitur</th>
+            <th>Status Debitur</th>
+            <th>Produk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="action">
+              <a class="action-button detail-button" href="survei-batal-survei.html">
+                <i class="fa fa-trash" aria-hidden="true"></i> batal survey
+              </a>
+              <a class="action-button detail-button" href="taksasi-lihat.html">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i> kirim
+              </a>
+              <a href="taksasi-input.html" class="action-button update-button">
+                <i class="fas fa-edit" aria-hidden="true"></i> input
+              </a>
+              <a class="action-button detail-button" href="taksasi-lihat.html">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> lihat
+              </a>
+            </td>
+            <td>000001</td>
+            <td>01/12/2012</td>
+            <td>Vincent Dinata</td>
+            <td></td>
+            <td>Leonardo Davinci Code</td>
+            <td>New</td>
+            <td>UMKM</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <div class="pagination" th:if="${numberOfPages} != 0">
+                <div>
+                  <button>&laquo;</button>
+                  <button>&lt;</button>
+                  <span>Page 1 of 30</span>
+                  <button>&gt;</button>
+                  <button>&raquo;</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -339,8 +339,12 @@ tfoot td {
 }
 
 .action {
-    min-width: 100px;
+    min-width: 255px;
     text-align: center;
+}
+
+.action * {
+    margin-bottom: 10px;
 }
 
 .action-button {
@@ -741,4 +745,40 @@ h3 a:hover {
 .form-table table th {
     border: none;
     text-align: left;
+}
+/* table in form */
+.table-form {
+    margin-top: 15px;
+}
+
+.table-form h4 {
+    margin-bottom: 15px;
+}
+
+.table-form button {
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+/* Button di bawah form */
+.form-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-button * {
+    width: fit-content;
+    margin: 10px 5px 0 5px;
+}
+
+/* Label untuk data di atas form */
+.upper-table-label {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 10px 0;
+}
+
+.upper-table-label .label-nama {
+    width: 250px;
 }

@@ -23,68 +23,79 @@
 <div class="container">
     <aside class="sidebar">
         <ul>
-            <li><a href="../portal/portal.html">Portal</a></li>
+        <li><a href="../portal/portal.html">Portal</a></li>
 
-            <!-- Dropdown for Transaksi -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Transaksi</a>
-                <ul class="dropdown-menu">
-                    <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
-                    <li><a href="../survei/survei-main.html">Survei</a></li>
-                    <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
-                </ul>
-            </li>
+        <!-- Dropdown for Transaksi -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Transaksi</a>
+            <ul class="dropdown-menu">
+            <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+            <li><a href="../survei/survei-main.html">Survei</a></li>
+            <li><a href="../usermanagement/transaksi-pemindahantask.html">Validasi Survei</a></li>
+            </ul>
+        </li>
         </ul>
     </aside>
     <main>
         <div class="table-container">
-            <h3> Taksasi </h3>
+            <h3>
+                <a href="survei-main.html"> Survei </a> > <a href="survei-input.html"> Input </a> > Lihat Kontrak RO
+            </h3>
+            <div>
+                <div class="upper-table-label">
+                    <label class="label-nama">Nomor Aplikasi</label></td>
+                    <label><span th:text="${nomorAplikasi}"></span>000001</label>
+                </div>
+            </div>
             <form method="get" class="filter" th:action="@{/prospect}">
-                <input type="text" id="nama" name="nama" placeholder="Nama Debitur" th:attr="value=${nama}">
+                <input type="text" id="nama" name="nama" placeholder="Nama Produk" th:attr="value=${nama}">
                 <div class="searchbar">
-                    <input id="search" name="search" type="text" placeholder="Nama Tabel">
-                    <label for="search" class="fa fa-search input-icon"></label>
+                <input id="search" name="search" type="text" placeholder="Nama Produk">
+                <label for="search" class="fa fa-search input-icon"></label>
                 </div>
                 <button class="filter-button" type="submit">
-                    Search
+                Search
                 </button>
             </form>
             <table>
                 <thead>
                     <tr>
-                        <th>Action</th>
                         <th>Nomor Aplikasi</th>
-                        <th>Tanggal Aplikasi</th>
-                        <th>Nama Debitur</th>
-                        <th>Status Debitur</th>
-                        <th>Tanggal Taksasi</th>
+                        <th>Nomor Kontrak</th>
                         <th>Produk</th>
-                        <th>Merek</th>
-                        <th>Tipe</th>
-                        <th>Model</th>
-                        <th>Jenis</th>
+                        <th>Tanggal Pencairan</th>
+                        <th>Sisa Pokok</th>
+                        <th>Angsuran Ke</th>
+                        <th>Tenor</th>
+                        <th>Status Past Due</th>
+                        <th>Maksimal Past Due</th>
+                        <th>Status Kontrak</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="action">
-                            <a href="taksasi-input.html" class="action-button update-button">
-                                <i class="fas fa-edit" aria-hidden="true"></i> input
-                            </a>
-                            <a class="action-button detail-button" href="taksasi-lihat.html">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i> lihat
-                            </a>
-                        </td>
                         <td>000001</td>
-                        <td>01/12/2012</td>
-                        <td>Leonardo Davinci Code</td>
-                        <td>New</td>
+                        <td>700001</td>
+                        <td>Agunan</td>
+                        <td>21 Feb 2024</td>
+                        <td>800.000</td>
+                        <td>20</td>
+                        <td>24</td>
+                        <td>1-30</td>
+                        <td>28</td>
+                        <td>AR</td>
+                    </tr>
+                    <tr>
+                        <td>000002</td>
+                        <td>700001</td>
+                        <td>Non Agunan</td>
                         <td></td>
-                        <td>UMKM</td>
-                        <td>Toyota</td>
-                        <td>Avanza</td>
-                        <td>Veloz</td>
-                        <td>MPV</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Lunas</td>
                     </tr>
                 </tbody>
                 <tfoot>
