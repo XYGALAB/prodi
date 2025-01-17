@@ -444,7 +444,7 @@ h3 a:hover {
     background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
     padding: 20px;
     border-radius: 8px;
-    width: 780px;
+    min-width: 780px;
     max-width: 100%; /* Ensures responsiveness */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -481,7 +481,6 @@ h3 a:hover {
 .upsert-form input[type="file"],
 .upsert-form textarea,
 .upsert-form select {
-    width: 100%;
     min-height: 35px;
     padding: 10px;
     margin: 8px 0 15px 0;
@@ -566,6 +565,26 @@ h3 a:hover {
 }
 
 /* Submit Button Styles */
+.form-button{
+    display: flex;
+    gap: 10px;
+}
+
+.form-button a{
+    margin-top: 15px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+}
+
 .submit-button {
     margin-top: 15px;
     background-color: #000; /* Black background */
@@ -580,7 +599,7 @@ h3 a:hover {
     width: 100%;
 }
 
-.submit-button:hover {
+.submit-button:hover, .form-button a:hover {
     background-color: #444; /* Darker black on hover */
 }
 
@@ -596,8 +615,8 @@ h3 a:hover {
 }
 /* Toggle Button Styling */
 .toggle-btn {
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #5656568c;
+    color: #ffffff;
     font-weight: bold;
     border: none;
     padding: 10px;
@@ -614,14 +633,14 @@ h3 a:hover {
 }
 
 .toggle-btn:hover {
-    background-color: #e3e3e3;
+    background-color: #5c5c5c;
 }
 
 /* Add a right-facing arrow to the dropdown toggle */
 .toggle-btn:after {
     content: '\2192'; /* Unicode for right arrow */
     font-size: 18px;
-    color: #333;
+    color: #ffffff;
     margin-left: 10px; /* Space between text and arrow */
     transition: transform 0.3s ease;
 }
@@ -705,4 +724,21 @@ h3 a:hover {
     position: absolute;
     right: 10px;
     top: calc(50% - 0.5em);
+}
+
+/* Form table */
+.form-table .filter button.filter-button {
+    padding: 5px 10px;
+    border: 1px solid black;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 8px;
+    margin-bottom: 14px;
+}
+
+.form-table table th {
+    border: none;
+    text-align: left;
 }

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="../../../static/js/script.js" defer></script>
+    <script src="../../../static/js/script-validasi-form.js" defer></script>
 </head>
 <body>
     <header>
@@ -30,7 +30,7 @@
             </ul>
         </aside>
         <main>
-            <div class="table-container">
+            <div class="form-container">
                 <h3>
                     <a href="validasi-survey-main.html"> Validasi Survey </a> >
                     <a href="validasi-survey-form.html"> Ubah </a>
@@ -38,130 +38,400 @@
                 <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
                     <input type="hidden" name="_csrf" value="${_csrf.token}">
                     <div id="part1" class="form-part">
-                        <button type="button" class="toggle-btn" onclick="togglePart('part1')">Data Diri</button>
-                        <div class="form-content">
+                        <div class="form">
                             <table>
                                 <tbody>
-                                    <!-- Divisi (Dropdown) -->
                                     <tr>
-                                        <td><label class="label-nama">Divisi*</label></td>
+                                        <td><label class="label-nama">Nomor Aplikasi</label></td>
                                         <td>
-                                            <select name="divisi" id="divisi">
-                                                <option value="MKT">MKT</option>
-                                                <option value="HR">HR</option>
-                                                <option value="IT">IT</option>
-                                                <option value="Finance">Finance</option>
-                                            </select>
+                                            <input id="nomor-aplikasi" name="nomor-aplikasi" type="text" required readonly value="000002">
                                             <div class="field-validation-error"></div>
                                         </td>
                                     </tr>
-                                    
-                                    <!-- Kode Department (Text Input) -->
                                     <tr>
-                                        <td><label class="label-nama">Kode Department*</label></td>
+                                        <td><label class="label-nama">Namad Depan Debitur</label></td>
                                         <td>
-                                            <input id="kode-department" name="kode-department" type="text" required readonly value="MKT">
+                                            <input id="nama-depan-debitur" name="nama-depan-debitur" type="text" required readonly value="Leonardo">
                                             <div class="field-validation-error"></div>
                                         </td>
                                     </tr>
-                                    
-                                    <!-- Nama Department (Text Input) -->
                                     <tr>
-                                        <td><label class="label-nama">Nama Department*</label></td>
+                                        <td><label class="label-nama">Namad Tengah Debitur</label></td>
                                         <td>
-                                            <input id="nama-department" name="nama-department" type="text" required>
+                                            <input id="nama-tengah-debitur" name="nama-tengah-debitur" type="text" readonly value="Davinci">
                                             <div class="field-validation-error"></div>
                                         </td>
                                     </tr>
-                                    
-                                    <!-- Status (Radio Buttons) -->
                                     <tr>
-                                        <td><label class="label-nama">Status*</label></td>
+                                        <td><label class="label-nama">Namad Akhir Debitur</label></td>
+                                        <td>
+                                            <input id="nama-akhir-debitur" name="nama-akhir-debitur" type="text" readonly value="Code">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Tanggal Survey</label></td>
+                                        <td>
+                                            <input id="tanggal-survey" name="tanggal-survey" type="text" required readonly value="01 Januari 2025">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Surveyor</label></td>
+                                        <td>
+                                            <input id="surveyor" name="surveyor" type="text" required readonly value="01 Januari 2025">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Kondisi Non Standar</label></td>
                                         <td class="input-box">
-                                            <input type="radio" name="status" id="status-aktif" value="Aktif" required>
-                                            <label for="status-aktif">Aktif</label>
-                                            <input type="radio" name="status" id="status-tidak-aktif" value="Tidak Aktif" required>
-                                            <label for="status-tidak-aktif">Tidak Aktif</label>
+                                            <input type="radio" name="kondisi-nonstandar" id="kondisi-nonstandar-ada" value="ada" required>
+                                            <label for="kondisi-nonstandar-ada">Ada</label>
+                                            <input type="radio" name="kondisi-nonstandar" id="kondisi-nonstandar-tidakada" value="Tidak Ada" required>
+                                            <label for="status-tidak-aktif">Tidak Ada</label>
                                             <div class="field-validation-error" id="error-status"></div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Alasan Non Standar*</label></td>
+                                        <td>
+                                            <textarea id="alasan-nonstandar" name="alasan-nonstandar" required></textarea>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>   
+                                    <tr>
+                                        <td><label class="label-nama">Kondisi Non Standar</label></td>
+                                        <td class="input-box">
+                                            <div class="search-container search-kondisi">
+                                                <input type="text" name="name" placeholder="" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                            </div>    
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Komentar</label></td>
+                                        <td>
+                                            <textarea id="komentar" name="komentar"></textarea>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>   
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div id="part2" class="form-part">
-                        <button type="button" class="toggle-btn" onclick="togglePart('part2')">Perusahaan</button>
+                        <button type="button" class="toggle-btn" onclick="togglePart('part2')">Verifikasi</button>
                         <div class="form-content">
                             <table>
                                 <tbody>
-                                    <!-- Email (Email Input) -->
                                     <tr>
-                                        <td><label class="label-nama">Email*</label></td>
+                                        <td><label class="label-nama">Status Perkawinan</label></td>
+                                        <td> <span>Belum Kawin</span> </td>
                                         <td>
-                                            <input id="email" name="email" type="email" required placeholder="&#xf0e0;   company@email.com">
-                                            <div class="field-validation-error"></div>
+                                            <input type="checkbox" id="cek-status-perkawinan" name="cek-status-perkawinan">
+                                            <label for="status-perkawinan">Tidak Sesuai</label>
                                         </td>
-                                    </tr>
-                        
-                                    <!-- Phone Number (Tel Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Nomor Telepon*</label></td>
-                                        <td>
-                                            <input id="phone" name="phone" type="tel" required placeholder="&#xf095;   081234567890">
-                                            <div class="field-validation-error"></div>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Date (Date Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Tanggal Bergabung*</label></td>
-                                        <td>
-                                            <input id="tanggal" class="tanggal-id" name="tanggal-bergabung" type="text" required placeholder="&#xf133;   1 Januari 2025">
-                                            <div class="field-validation-error"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><label class="label-nama">Tanggal Bergabung*</label></td>
-                                        <td>
-                                            <input id="tanggal2" class="tanggal-id" name="tanggal-bergabung" type="text" required placeholder="&#xf133;   1 Januari 2025">
-                                            <div class="field-validation-error"></div>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Number (Number Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Jumlah Pegawai*</label></td>
-                                        <td>
-                                            <input id="jumlah-pegawai" name="jumlah-pegawai" type="number" required min="1" max="1000">
-                                            <div class="field-validation-error"></div>
-                                        </td>
-                                    </tr>
-                                    
-                                    <!-- Checkbox (Checkbox Input) -->
-                                    <tr>
-                                        <td><label class="label-nama">Persetujuan*</label></td>
                                         <td class="input-box">
-                                            <input type="checkbox" id="agreement" name="agreement" required>
-                                            <label for="agreement">Saya setuju dengan syarat dan ketentuan</label>
-                                            <div class="field-validation-error"></div>
+                                            <div class="search-container search-status-kawin">
+                                                <input type="text" name="status-perkawinan" placeholder="Kawin" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                                <div class="field-validation-error"></div>
+                                            </div> 
                                         </td>
                                     </tr>
-                                    
-                                    <!-- File Upload (File Input) -->
                                     <tr>
-                                        <td><label class="label-nama">Upload Surat Pengantar</label></td>
+                                        <td><label class="label-nama">Jumlah Tanggungan</label></td>
+                                        <td> <span>0</span> </td>
                                         <td>
-                                            <input type="file" id="file" name="file">
+                                            <input type="checkbox" id="cek-jumlah-tanggungan" name="cek-jumlah-tanggungan">
+                                            <label for="cek-jumlah-tanggungan">Tidak Sesuai</label>
+                                        </td>
+                                        <td>
+                                            <input id="jumlah-tanggungan" name="jumlah-tanggungan" type="number" required placeholder="0">
                                             <div class="field-validation-error"></div>
                                         </td>
                                     </tr>
-                        
+                                    <tr>
+                                        <td><label class="label-nama">Status Tempat Tinggal</label></td>
+                                        <td> <span>Sendiri</span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-status-tempat-tinggal" name="cek-status-tempat-tinggal">
+                                            <label for="cek-status-tempat-tinggal">Tidak Sesuai</label>
+                                        </td>
+                                        <td class="input-box">
+                                            <div class="search-container search-status-tinggal">
+                                                <input type="text" name="status-tempat-tinggal" placeholder="Keluarga" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                                <div class="field-validation-error"></div>
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Lama Tinggal*</label></td>
+                                        <td> <span> Kurang 1 Tahun </span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-lama-tinggal" name="cek-lama-tinggal">
+                                            <label for="cek-lama-tinggal">Tidak Sesuai</label>
+                                        </td>
+                                        <td class="input-box">
+                                            <div class="search-container search-lama-tinggal">
+                                                <input type="text" name="lama-tinggal" placeholder="1-5 Tahun" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                                <div class="field-validation-error"></div>
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Status Usaha</label></td>
+                                        <td> <span> Usaha Kecil </span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-status-usaha" name="cek-status-usaha">
+                                            <label for="cek-status-usaha">Tidak Sesuai</label>
+                                        </td>
+                                        <td class="input-box">
+                                            <div class="search-container search-status-usaha">
+                                                <input type="text" name="status-usaha" placeholder="Usaha Menengah" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                                <div class="field-validation-error"></div>
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Omzet Usaha per Bulan*</label></td>
+                                        <td> <span> 7.500.000 </span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-omzet-usaha" name="cek-omzet-usaha">
+                                            <label for="cek-omzet-usaha">Tidak Sesuai</label>
+                                        </td>
+                                        <td>
+                                            <input id="omzet-usaha" name="omzet-usaha" type="number" required placeholder="0">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Penghasilan Lain*</label></td>
+                                        <td> <span> Double Income </span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-penghasilan-lain" name="cek-penghasilan-lain">
+                                            <label for="cek-penghasilan-lain">Tidak Sesuai</label>
+                                        </td>
+                                        <td class="input-box">
+                                            <div class="search-container search-penghasilan-lain">
+                                                <input type="text" name="penghasilan-lain" placeholder="Gaji Kerja" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                                <div class="field-validation-error"></div>
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Angsuran Lain*</label></td>
+                                        <td> <span> Ada </span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-angsuran-lain" name="cek-angsuran-lain">
+                                            <label for="cek-angsuran-lain">Tidak Sesuai</label>
+                                        </td>
+                                        <td class="input-box">
+                                            <div class="search-container search-angsuran-lain">
+                                                <input type="text" name="angsuran-lain" placeholder="Ada" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                                <div class="field-validation-error"></div>
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Jenis Usaha*</label></td>
+                                        <td> <span> Sembako </span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-jenis-usaha" name="cek-jenis-usaha">
+                                            <label for="cek-jenis-usaha">Tidak Sesuai</label>
+                                        </td>
+                                        <td class="input-box">
+                                            <div class="search-container search-jenis-usaha">
+                                                <input type="text" name="jenis-usaha" placeholder="Makanan/Minuman" class="search-suggestion>
+                                                <div class="suggestions"></div>
+                                                <div class="field-validation-error"></div>
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Keterangan Usaha*</label></td>
+                                        <td> <span> Menjual kebutuhan sehari-hari </span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-keterangan-usaha" name="cek-keterangan-usaha">
+                                            <label for="cek-keterangan-usaha">Tidak Sesuai</label>
+                                        </td>
+                                        <td>
+                                            <textarea id="keterangan-usaha" name="keterangan-usaha"></textarea>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Lama Usaha di Tempat Ini*</label></td>
+                                        <td> <span> 24 bulan </span> </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-lama-usaha" name="cek-lama-usaha">
+                                            <label for="cek-lama-usaha">Tidak Sesuai</label>
+                                        </td>
+                                        <td>
+                                            <input id="lama-usaha" name="lama-usaha" type="number" required placeholder="12 bulan">                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                    <div id="part3" class="form-part">
+                        <button type="button" class="toggle-btn" onclick="togglePart('part3')">Bussiness Checking</button>
+                        <div class="form-content form-table">
+                            <div class="filter">
+                                <select name="search-business-checking" aria-placeholder="Nama">
+                                    <option value="nomor-aplikasi">Nomor Aplikasi</option>
+                                </select>
+                                <div class="search-container">
+                                    <input type="text" name="name" placeholder="Vincent" class="search-suggestion">
+                                    <div class="suggestions"></div>
+                                </div>
+                                <button class="filter-button" type="submit">
+                                    Search
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Kepada</th>
+                                        <th>Nama</th>
+                                        <th>No Handphone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="action">
+                                            <a href="validasi-survey-form.html" class="action-button update-button">
+                                                <i class="fas fa-edit" aria-hidden="true"></i> ubah
+                                            </a>
+                                        </td>
+                                        <td>RT</td>
+                                        <td>Vincent Rompies</td>
+                                        <td>0818888232</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="action">
+                                            <a href="validasi-survey-form.html" class="action-button update-button">
+                                                <i class="fas fa-edit" aria-hidden="true"></i> ubah
+                                            </a>
+                                        </td>
+                                        <td>RT</td>
+                                        <td>Vincent Rompies</td>
+                                        <td>0818888232</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="pagination" th:if="${numberOfPages} != 0">
+                                                <div>
+                                                    <button>&laquo;</button>
+                                                    <button>&lt;</button>
+                                                    <span>Page 1 of 30</span>
+                                                    <button>&gt;</button>
+                                                    <button>&raquo;</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><label class="label-nama">Hasil Bisnis Chechking</label></td>
+                                        <td>
+                                            <textarea id="hasil-bisnis-checking" name="hasil-bisnis-checking"></textarea>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="part4" class="form-part">
+                        <button type="button" class="toggle-btn" onclick="togglePart('part4')">Syarat Dokumen</button>
+                        <div class="form-content form-table">
+                            <div class="filter">
+                                <select name="search-syarat-dokumen" aria-placeholder="Dokumen">
+                                    <option value="dokumen">Dokumen</option>
+                                </select>
+                                <div class="search-container">
+                                    <input type="text" name="name" placeholder="KTP" class="search-suggestion">
+                                    <div class="suggestions"></div>
+                                </div>
+                                <button class="filter-button" type="submit">
+                                    Search
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Verify</th>
+                                        <th><span class="checkmark"><i class="fas fa-check"></i></span></th>
+                                        <th>Dokumen</th>
+                                        <th>Mandatory</th>
+                                        <th>Tanggal Terima</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="cek-dokumen1" name="cek-dokumen1">
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-dokumen2" name="cek-dokumen2">
+                                        </td>
+                                        <td>Form Permohonan Pembiayaan</td>
+                                        <td>YA</td>
+                                        <td>01 November 2024</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="cek-dokumen1" name="cek-dokumen1">
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="cek-dokumen2" name="cek-dokumen2">
+                                        </td>
+                                        <td>Kartu Identitas Pemohon (KTP/SIM) </td>
+                                        <td>YA</td>
+                                        <td>01 November 2024</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="pagination" th:if="${numberOfPages} != 0">
+                                                <div>
+                                                    <button>&laquo;</button>
+                                                    <button>&lt;</button>
+                                                    <span>Page 1 of 30</span>
+                                                    <button>&gt;</button>
+                                                    <button>&raquo;</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
                     <!-- Submit Button -->
-                    <button class="submit-button" type="submit">Save</button>
+                    <div class="form-button">
+                        <button class="submit-button" type="submit">Proses</button>
+                        <a class="revisi-button" type="button">Revisi</a>
+                        <a class="lihat-survey-button" type="button">Lihat Survey</a>
+                        <a class="lihat-komentar-button" type="button">Lihat Komentar</a>
+                    </div>
                 </form>      
             </div>
         </main>
