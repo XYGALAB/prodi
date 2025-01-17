@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
+</head>
+<body>
+<header>
+    <div>
+        <h1>Simurgh</h1>
+        <span>Demo Multi Finance</span>
+    </div>
+    <div>Welcome, User</div>
+</header>
+<div class="container">
+    <aside class="sidebar">
+        <ul>
+        <li><a href="../portal/portal.html">Portal</a></li>
+
+        <!-- Dropdown for Transaksi -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Transaksi</a>
+            <ul class="dropdown-menu">
+            <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+            <li><a href="../survei/survei-main.html">Survei</a></li>
+            <li><a href="../usermanagement/transaksi-pemindahantask.html">Validasi Survei</a></li>
+            </ul>
+        </li>
+        </ul>
+    </aside>
+    <main>
+        <div class="table-container">
+            <h3>
+                <a href="survei-main.html"> Survei </a> > <a href="survei-input.html"> Input </a> > Data Kartu Keluarga
+            </h3>
+            <div>
+                <div class="upper-table-label">
+                    <label class="label-nama">Nomor Kartu Keluarga</label></td>
+                    <label><span th:text="${nomorKartuKeluarga}"></span>09290293029329</label>
+                </div>
+                <div class="upper-table-label">
+                    <label class="label-nama">Tanggal Berlaku Kartu Keluarga</label></td>
+                    <label><span th:text="${tanggalBerlaku}"></span>01 Desember 2024</label>
+                </div>
+            </div>
+            <a class="black-button create-button" href="">
+                Tambah
+                <i class="fas fa-plus" aria-hidden="true"></i>
+            </a>
+            <form method="get" class="filter" th:action="@{/prospect}">
+                <input type="text" id="nama" name="nama" placeholder="Nama Produk" th:attr="value=${nama}">
+                <div class="searchbar">
+                <input id="search" name="search" type="text" placeholder="Nama Produk">
+                <label for="search" class="fa fa-search input-icon"></label>
+                </div>
+                <button class="filter-button" type="submit">
+                Search
+                </button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Nama Lengkap</th>
+                        <th>NIK</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Pendidikan</th>
+                        <th>Hubungan</th>
+                        <th>Kewarganegaraan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="action">
+                            <a href="" class="action-button delete-button">
+                                <i class="fa fa-trash" aria-hidden="true"></i> delete
+                            </a>
+                            <a href="" class="action-button update-button">
+                                <i class="fas fa-edit" aria-hidden="true"></i> edit
+                            </a>
+                            <a href="" class="action-button update-button">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> lihat
+                            </a>
+                        </td>
+                        <td>Tata Jim</td>
+                        <td>0367480001</td>
+                        <td>Laki-laki</td>
+                        <td>Jakarta</td>
+                        <td>01/12/2000</td>
+                        <td>S1</td>
+                        <td>Anak</td>
+                        <td>WNI</td>
+                    </tr>
+                    <tr>
+                        <td class="action">
+                            <a href="" class="action-button delete-button">
+                                <i class="fa fa-trash" aria-hidden="true"></i> delete
+                            </a>
+                            <a href="" class="action-button update-button">
+                                <i class="fas fa-edit" aria-hidden="true"></i> edit
+                            </a>
+                            <a href="" class="action-button update-button">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> lihat
+                            </a>
+                        </td>
+                        <td>Reynay Tata</td>
+                        <td>0367480002</td>
+                        <td>Perempuan</td>
+                        <td>Bali</td>
+                        <td>01/12/2000</td>
+                        <td>S1</td>
+                        <td>Istri</td>
+                        <td>WNI</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <div class="pagination" th:if="${numberOfPages} != 0">
+                                <div>
+                                    <button>&laquo;</button>
+                                    <button>&lt;</button>
+                                    <span>Page 1 of 30</span>
+                                    <button>&gt;</button>
+                                    <button>&raquo;</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </main>
+</div>
+</body>
+</html>
