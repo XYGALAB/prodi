@@ -48,10 +48,13 @@
                 </div>
             </div>
             <form method="get" class="filter" th:action="@{/prospect}">
-                <input type="text" id="nama" name="nama" placeholder="Nama Produk" th:attr="value=${nama}">
+                <select name="search-dropdown" id="search-dropdown">
+                    <option value="" selected hidden>Nama Produk</option>
+                    <option value="Tata Jim">Tata Jim</option>
+                </select>
                 <div class="searchbar">
-                <input id="search" name="search" type="text" placeholder="Nama Produk">
-                <label for="search" class="fa fa-search input-icon"></label>
+                    <input id="search" name="search" type="text" placeholder="Nama Produk">
+                    <label for="search" class="fa fa-search input-icon"></label>
                 </div>
                 <button class="filter-button" type="submit">
                 Search

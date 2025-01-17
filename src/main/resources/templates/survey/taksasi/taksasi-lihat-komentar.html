@@ -42,7 +42,10 @@
                 <a href="taksasi-main.html"> Taksasi </a> > <a href="taksasi-input.html"> Input </a> > Lihat Komentar
             </h3>
             <form method="get" class="filter" th:action="@{/prospect}">
-                <input type="text" id="nama" name="nama" placeholder="Nama PIC" th:attr="value=${nama}">
+                <select name="nama" id="nama">
+                    <option value="" selected hidden>Nama PIC</option>
+                    <option value="Jane Doe">Jane Doe</option>
+                </select>
                 <div class="searchbar">
                     <input id="search" name="search" type="text" placeholder="Nama PIC">
                     <label for="search" class="fa fa-search input-icon"></label>

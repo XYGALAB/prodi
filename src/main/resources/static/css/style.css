@@ -211,7 +211,7 @@ select {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 15px;
-    height: 30px;
+    height: 40px;
 }
 
 .filter input::placeholder{
@@ -746,4 +746,35 @@ h3 a:hover {
 
 .upper-table-label .label-nama {
     width: 250px;
+}
+
+/* Input sebaris dengan dropdown */
+.input-dropdown {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-dropdown select {
+    width: 200px;
+    margin-right: 10px;
+}
+
+/* Input khusus RT/RW */
+.input-rtrw {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.input-rtrw input[type="text"] {
+    width: 50px;
+    text-align: center;
+}
+
+.input-rtrw p {
+    margin: 0 10px 0 10px;
+    font-size: xx-large;
 }
