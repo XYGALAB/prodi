@@ -39,25 +39,26 @@
     <main>
         <div class="form-container">
             <h3>
-                <a href="survei-main.html"> Survei </a> > <a href="survei-input.html"> Input </a> > Ubah Kendaraan Yang Di Miliki
+                <a href="survei-main.html"> Survei </a> > <a href="survei-input.html"> Input </a> > Tambah Angsuran Di Tempat Lain
             </h3>
             <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
                 <input type="hidden" name="_csrf" value="${_csrf.token}">
                 <table>
                     <tbody>
-                        <!-- Jenis Kendaraan -->
+                        <!-- Angsuran Di (Search Dropdown) -->
                         <tr>
-                            <td><label class="label-nama">Jenis Kendaraan</label></td>
+                            <td><label class="label-nama">Angsuran Di</label></td>
                             <td>
-                                <label><span th:text="${jenisKendaraan}"></span>Motor</label>
+                                <input id="angsuran" name="angsuran" type="text" value="Home Credit">
+                                <div class="field-validation-error"></div>
                             </td>
                         </tr>
 
-                        <!-- Jumlah Unit (Number Input) -->
+                        <!-- Nilai Angsuran (Number Input) -->
                         <tr>
-                            <td><label class="label-nama">Jumlah Unit *</label></td>
+                            <td><label class="label-nama">Nilai Angsuran</label></td>
                             <td>
-                                <input id="jumlah-unit" name="jumlah-unit" type="number" required min="1" max="99999999999" value="2">
+                                <input id="nilai-angsuran" name="nilai-angsuran" type="number" min="1" max="99999999999" value="1200000">
                                 <div class="field-validation-error"></div>
                             </td>
                         </tr>
