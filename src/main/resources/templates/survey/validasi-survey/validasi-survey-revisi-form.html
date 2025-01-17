@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script-validasi-revisi-form.js" defer></script>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Simurgh</h1>
+            <span>Demo Multi Finance</span>
+        </div>
+        <div>Welcome, User</div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="../portal/portal.html">Portal</a></li>
+    
+                <!-- Dropdown for Transaksi -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Transaksi</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                        <li><a href="../survei/survei-main.html">Survei</a></li>
+                        <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <div class="form-container">
+                <h3>
+                    <a href="validasi-survey-main.html"> Validasi Survey </a> >
+                    <a href="validasi-survey-revisi-main.html"> Revisi Survey </a> >
+                    <a href="validasi-survey-revisi-form.html"> Ubah </a>
+                </h3>
+                <form method="post" class="upsert-form" action="/book-library/insert-update(categoryName=${categoryName})">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <div id="part1" class="form-part">
+                        <div class="form">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><label class="label-nama">Nomor Aplikasi</label></td>
+                                        <td>
+                                            <input id="nomor-aplikasi" name="nomor-aplikasi" type="text" required readonly value="000002">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Namad Depan Debitur</label></td>
+                                        <td>
+                                            <input id="nama-depan-debitur" name="nama-depan-debitur" type="text" required readonly value="Leonardo">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Namad Tengah Debitur</label></td>
+                                        <td>
+                                            <input id="nama-tengah-debitur" name="nama-tengah-debitur" type="text" readonly value="Davinci">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Namad Akhir Debitur</label></td>
+                                        <td>
+                                            <input id="nama-akhir-debitur" name="nama-akhir-debitur" type="text" readonly value="Code">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Tanggal Pengajuan Revisi</label></td>
+                                        <td>
+                                            <input id="tanggal-survey" name="tanggal-survey" type="text" required readonly value="01 Januari 2025">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Jabatan Pengaju Revisi</label></td>
+                                        <td>
+                                            <input id="jabatan-pengaju-revisi" name="jabatan-pengaju-revisi" type="text" readonly value="Code">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="label-nama">Surveyor</label></td>
+                                        <td>
+                                            <input id="surveyor" name="surveyor" type="text" required readonly value="01 Januari 2025">
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td><label class="label-nama">Alasan Mengajukan Revisi</label></td>
+                                        <td>
+                                            <textarea id="alasan-revisi" name="alasan-revisi"></textarea>
+                                            <div class="field-validation-error"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="cek-pengalihan-surveyor" name="cek-pengalihan-surveyor" onclick="toggleStatusPerkawinan('cek-pengalihan-surveyor','alasan-pengalihan','surveyor-baru')">
+                                            <label for="cek-lama-usaha">Pengalihan Surveyor</label>
+                                        </td>
+                                    </tr>
+                                    <tr id="surveyor-baru">
+                                        <td><label class="label-nama">Surveyor Baru*</label></td>
+                                        <td class="input-box">
+                                            <div class="search-container search-surveyor">
+                                                <input type="text" name="surveyor-baru" placeholder="" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                            </div>    
+                                        </td>
+                                    </tr>
+                                    <tr id="alasan-pengalihan">
+                                        <td><label class="label-nama">Alasan Pengalihan*</label></td>
+                                        <td class="input-box">
+                                            <div class="search-container alasan-pengalihan">
+                                                <input type="text" name="alasan-pengalihan" placeholder="" class="search-suggestion">
+                                                <div class="suggestions"></div>
+                                            </div>    
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="form-button">
+                        <button class="submit-button" type="submit">Proses</button>
+                        <a class="lihat-survey-button" type="button">Lihat Survey</a>
+                    </div>
+                </form>      
+            </div>
+        </main>
+    </div>
+</body>
+</html>

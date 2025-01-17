@@ -23,10 +23,17 @@
     <div class="container">
         <aside class="sidebar">
             <ul>
-                <li><a href="../../portal/portal.html">Portal</a></li>
-                <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
-                <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survey</a></li>
-                <!-- <li><a href="../portal/portal.html">Portal</a></li> -->
+                <li><a href="../portal/portal.html">Portal</a></li>
+    
+                <!-- Dropdown for Transaksi -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Transaksi</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                        <li><a href="../survei/survei-main.html">Survei</a></li>
+                        <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survei</a></li>
+                    </ul>
+                </li>
             </ul>
         </aside>
         <main>
@@ -129,10 +136,10 @@
                                         <td><label class="label-nama">Status Perkawinan</label></td>
                                         <td> <span>Belum Kawin</span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-status-perkawinan" name="cek-status-perkawinan">
-                                            <label for="status-perkawinan">Tidak Sesuai</label>
+                                            <input type="checkbox" id="cek-status-perkawinan" name="cek-status-perkawinan" onclick="toggleStatusPerkawinan('cek-status-perkawinan','status-perkawinan')">
+                                            <label for="cek-status-perkawinan">Tidak Sesuai</label>
                                         </td>
-                                        <td class="input-box">
+                                        <td class="input-box tidak-sesuai" id="status-perkawinan">
                                             <div class="search-container search-status-kawin">
                                                 <input type="text" name="status-perkawinan" placeholder="Kawin" class="search-suggestion">
                                                 <div class="suggestions"></div>
@@ -144,11 +151,11 @@
                                         <td><label class="label-nama">Jumlah Tanggungan</label></td>
                                         <td> <span>0</span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-jumlah-tanggungan" name="cek-jumlah-tanggungan">
+                                            <input type="checkbox" id="cek-jumlah-tanggungan" name="cek-jumlah-tanggungan" onclick="toggleStatusPerkawinan('cek-jumlah-tanggungan','jumlah-tanggungan')">
                                             <label for="cek-jumlah-tanggungan">Tidak Sesuai</label>
                                         </td>
-                                        <td>
-                                            <input id="jumlah-tanggungan" name="jumlah-tanggungan" type="number" required placeholder="0">
+                                        <td class="tidak-sesuai" id="jumlah-tanggungan">
+                                            <input name="jumlah-tanggungan" type="number" required placeholder="0">
                                             <div class="field-validation-error"></div>
                                         </td>
                                     </tr>
@@ -156,10 +163,10 @@
                                         <td><label class="label-nama">Status Tempat Tinggal</label></td>
                                         <td> <span>Sendiri</span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-status-tempat-tinggal" name="cek-status-tempat-tinggal">
+                                            <input type="checkbox" id="cek-status-tempat-tinggal" name="cek-status-tempat-tinggal" onclick="toggleStatusPerkawinan('cek-status-tempat-tinggal','status-tempat-tinggal')">
                                             <label for="cek-status-tempat-tinggal">Tidak Sesuai</label>
                                         </td>
-                                        <td class="input-box">
+                                        <td class="tidak-sesuai" id="status-tempat-tinggal">
                                             <div class="search-container search-status-tinggal">
                                                 <input type="text" name="status-tempat-tinggal" placeholder="Keluarga" class="search-suggestion">
                                                 <div class="suggestions"></div>
@@ -171,10 +178,10 @@
                                         <td><label class="label-nama">Lama Tinggal*</label></td>
                                         <td> <span> Kurang 1 Tahun </span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-lama-tinggal" name="cek-lama-tinggal">
+                                            <input type="checkbox" id="cek-lama-tinggal" name="cek-lama-tinggal" onclick="toggleStatusPerkawinan('cek-lama-tinggal','lama-tinggal')">
                                             <label for="cek-lama-tinggal">Tidak Sesuai</label>
                                         </td>
-                                        <td class="input-box">
+                                        <td class="input-box tidak-sesuai" id="lama-tinggal">
                                             <div class="search-container search-lama-tinggal">
                                                 <input type="text" name="lama-tinggal" placeholder="1-5 Tahun" class="search-suggestion">
                                                 <div class="suggestions"></div>
@@ -186,10 +193,10 @@
                                         <td><label class="label-nama">Status Usaha</label></td>
                                         <td> <span> Usaha Kecil </span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-status-usaha" name="cek-status-usaha">
+                                            <input type="checkbox" id="cek-status-usaha" name="cek-status-usaha" onclick="toggleStatusPerkawinan('cek-status-usaha','status-usaha')">
                                             <label for="cek-status-usaha">Tidak Sesuai</label>
                                         </td>
-                                        <td class="input-box">
+                                        <td class="input-box tidak-sesuai" id="status-usaha">
                                             <div class="search-container search-status-usaha">
                                                 <input type="text" name="status-usaha" placeholder="Usaha Menengah" class="search-suggestion">
                                                 <div class="suggestions"></div>
@@ -201,10 +208,10 @@
                                         <td><label class="label-nama">Omzet Usaha per Bulan*</label></td>
                                         <td> <span> 7.500.000 </span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-omzet-usaha" name="cek-omzet-usaha">
+                                            <input type="checkbox" id="cek-omzet-usaha" name="cek-omzet-usaha" onclick="toggleStatusPerkawinan('cek-omzet-usaha','omzet-usaha')">
                                             <label for="cek-omzet-usaha">Tidak Sesuai</label>
                                         </td>
-                                        <td>
+                                        <td class="tidak-sesuai" id="omzet-usaha">
                                             <input id="omzet-usaha" name="omzet-usaha" type="number" required placeholder="0">
                                             <div class="field-validation-error"></div>
                                         </td>
@@ -213,10 +220,10 @@
                                         <td><label class="label-nama">Penghasilan Lain*</label></td>
                                         <td> <span> Double Income </span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-penghasilan-lain" name="cek-penghasilan-lain">
+                                            <input type="checkbox" id="cek-penghasilan-lain" name="cek-penghasilan-lain" onclick="toggleStatusPerkawinan('cek-penghasilan-lain','penghasilan-lain')">
                                             <label for="cek-penghasilan-lain">Tidak Sesuai</label>
                                         </td>
-                                        <td class="input-box">
+                                        <td class="input-box tidak-sesuai" id="penghasilan-lain">
                                             <div class="search-container search-penghasilan-lain">
                                                 <input type="text" name="penghasilan-lain" placeholder="Gaji Kerja" class="search-suggestion">
                                                 <div class="suggestions"></div>
@@ -228,10 +235,10 @@
                                         <td><label class="label-nama">Angsuran Lain*</label></td>
                                         <td> <span> Ada </span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-angsuran-lain" name="cek-angsuran-lain">
+                                            <input type="checkbox" id="cek-angsuran-lain" name="cek-angsuran-lain" onclick="toggleStatusPerkawinan('cek-angsuran-lain','angsuran-lain')">
                                             <label for="cek-angsuran-lain">Tidak Sesuai</label>
                                         </td>
-                                        <td class="input-box">
+                                        <td class="input-box tidak-sesuai" id="angsuran-lain">
                                             <div class="search-container search-angsuran-lain">
                                                 <input type="text" name="angsuran-lain" placeholder="Ada" class="search-suggestion">
                                                 <div class="suggestions"></div>
@@ -243,10 +250,10 @@
                                         <td><label class="label-nama">Jenis Usaha*</label></td>
                                         <td> <span> Sembako </span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-jenis-usaha" name="cek-jenis-usaha">
+                                            <input type="checkbox" id="cek-jenis-usaha" name="cek-jenis-usaha" onclick="toggleStatusPerkawinan('cek-jenis-usaha','jenis-usaha')">
                                             <label for="cek-jenis-usaha">Tidak Sesuai</label>
                                         </td>
-                                        <td class="input-box">
+                                        <td class="input-box tidak-sesuai" id="jenis-usaha">
                                             <div class="search-container search-jenis-usaha">
                                                 <input type="text" name="jenis-usaha" placeholder="Makanan/Minuman" class="search-suggestion>
                                                 <div class="suggestions"></div>
@@ -258,10 +265,10 @@
                                         <td><label class="label-nama">Keterangan Usaha*</label></td>
                                         <td> <span> Menjual kebutuhan sehari-hari </span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-keterangan-usaha" name="cek-keterangan-usaha">
+                                            <input type="checkbox" id="cek-keterangan-usaha" name="cek-keterangan-usaha" onclick="toggleStatusPerkawinan('cek-keterangan-usaha','keterangan-usaha')">
                                             <label for="cek-keterangan-usaha">Tidak Sesuai</label>
                                         </td>
-                                        <td>
+                                        <td class="tidak-sesuai" id="keterangan-usaha">
                                             <textarea id="keterangan-usaha" name="keterangan-usaha"></textarea>
                                             <div class="field-validation-error"></div>
                                         </td>
@@ -270,10 +277,10 @@
                                         <td><label class="label-nama">Lama Usaha di Tempat Ini*</label></td>
                                         <td> <span> 24 bulan </span> </td>
                                         <td>
-                                            <input type="checkbox" id="cek-lama-usaha" name="cek-lama-usaha">
+                                            <input type="checkbox" id="cek-lama-usaha" name="cek-lama-usaha" onclick="toggleStatusPerkawinan('cek-lama-usaha','lama-usaha')">
                                             <label for="cek-lama-usaha">Tidak Sesuai</label>
                                         </td>
-                                        <td>
+                                        <td class="tidak-sesuai" id="lama-usaha">
                                             <input id="lama-usaha" name="lama-usaha" type="number" required placeholder="12 bulan">                                            <div class="field-validation-error"></div>
                                         </td>
                                     </tr>
@@ -428,7 +435,7 @@
                     <!-- Submit Button -->
                     <div class="form-button">
                         <button class="submit-button" type="submit">Proses</button>
-                        <a class="revisi-button" type="button">Revisi</a>
+                        <a href="validasi-survey-revisi-main.html" class="revisi-button" type="button">Revisi</a>
                         <a class="lihat-survey-button" type="button">Lihat Survey</a>
                         <a class="lihat-komentar-button" type="button">Lihat Komentar</a>
                     </div>

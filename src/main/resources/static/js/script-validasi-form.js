@@ -72,3 +72,15 @@ let statusKawinSuggestion = () => {
 // Panggil fungsi setelah definisi
 statusKawinSuggestion();
 kondisiSuggetion();
+
+function toggleStatusPerkawinan(id, box) {
+    var checkbox = document.getElementById(`${id}`);
+    var inputBox = document.querySelector(`#${box}`);
+
+    // Menampilkan atau menyembunyikan input status perkawinan
+    if (checkbox.checked) {
+        inputBox.style.display = "flex"; // Tampilkan input
+    } else {
+        inputBox.style.display = "none"; // Sembunyikan input
+    }
+}
