@@ -1,11 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simurgh</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="../../../static/js/script.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <div>
+            <h1>Simurgh</h1>
+            <span>Demo Multi Finance</span>
+        </div>
+        <div>Welcome, User</div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="../../portal/portal.html">Portal</a></li>
+                <li><a href="../taksasi/taksasi-main.html">Taksasi</a></li>
+                <li><a href="../validasi-survey/validasi-survey-main.html">Validasi Survey</a></li>
+                <!-- <li><a href="../portal/portal.html">Portal</a></li> -->
+            </ul>
+        </aside>
+        <main>
+            <div class="table-container">
+                <h3>
+                    <a href="validasi-survey-main.html"> Validasi Survey </a>
+                </h3>
+                <form method="get" class="filter" th:action="@{/prospect}">
+                    <select name="" id="" aria-placeholder="Nomor Aplikasi">
+                        <option value="indocyber">Nomor Aplikasi</option>
+                    </select>
+                    <div class="search-container">
+                        <input type="text" name="name" placeholder="A001" class="search-suggestion">
+                        <div class="suggestions"></div>
+                    </div>
+                    <button class="filter-button" type="submit">
+                        Search
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nomor  Aplikasi</th>
+                            <th>Dari</th>
+                            <th>Subjek</th>
+                            <th>Tanggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="action">
+                                <a href="validasi-survey-form.html" class="action-button update-button">
+                                    <i class="fas fa-edit" aria-hidden="true"></i> ubah
+                                </a>
+                            </td>
+                            <td>000001</td>
+                            <td>Vincent Rompies</td>
+                            <td>Validasi Survei - Desta</td>
+                            <td>01 Januari 2020</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                <div class="pagination" th:if="${numberOfPages} != 0">
+                                    <div>
+                                        <button>&laquo;</button>
+                                        <button>&lt;</button>
+                                        <span>Page 1 of 30</span>
+                                        <button>&gt;</button>
+                                        <button>&raquo;</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
